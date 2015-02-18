@@ -9,7 +9,7 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 			socket.emit('adduser', $scope.nickname, function (available) {
 				if (available) {
 					console.log("logged in as " + $scope.nickname);
-					//$location.path('/chat' + $scope.nickname);
+					$location.path('/rooms/' + $scope.nickname);
 				} else {
 					console.log("ertu endaþarms blóðmörskeppur ? ");
 					$scope.errorMessage = 'This nick-name is already taken!';
