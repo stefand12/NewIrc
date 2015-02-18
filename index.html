@@ -3,6 +3,7 @@
     <head>
     	<meta charset="utf-8">
         <title>Routing test</title>
+        
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-route/angular-route.min.js"></script>
         <script src="src/js/socket.io.min.js"></script>
@@ -15,8 +16,10 @@
         <script src="src/js/RoomListController.js"></script>
         <script src="src/js/LoginController.js"></script>
         <script src="src/js/RoomController.js"></script>
+
     </head>
 	<body ng-app="NewIrc">
+
 		<ul>
 			<li><a href="#/home">Home</a></li>
 			<li><a href="#/about">About</a></li>
@@ -28,4 +31,5 @@
 		</ul>
 		<div ng-view></div>		
 	</body>
+    <link rel="stylesheet" type="text/css" href="src/css/chatLook.css" />
 </html>
