@@ -1,11 +1,11 @@
 angular.module("NewIrc", ["ngRoute"]).config(function ($routeProvider) {
 	$routeProvider
 	.when("/home", {
-		templateUrl: "src/home.html",
+		templateUrl: "src/views/home.html",
 		controller: "HomeController"
 	})
 	.when("/about", {
-		templateUrl: "src/about.html",
+		templateUrl: "src/views/about.html",
 		controller: "AboutController"
 	})
 	.otherwise({
