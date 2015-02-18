@@ -2,28 +2,29 @@
 <html>
     <head>
         <title>Routing test</title>
-    </head>
-	<body ng-app="NewIrc">
-		<ul>
-			<li><a href="#/home">Home</li>
-			<li><a href="#/about">About</li>
-			<li><a href="#/room">Room</li>
-			<li><a href="#/login">Login</li>
-			<li><a href="#/rooms">Rooms</li>
-			<li><a href="#/users">Users</li>
-			<li><a href="#/chat">Chat</li>
-		</ul>
-		<div ng-view></div>		
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="src/js/socket.io.min.js"></script>
         <script src="src/js/App.js"></script>
+        <script src="src/js/socket-factory.js"></script>
         <script src="src/js/HomeController.js"></script>
         <script src="src/js/AboutController.js"></script>
         <script src="src/js/ChatController.js"></script>
         <script src="src/js/UserListController.js"></script>
-        <script src="src/js/ChatController.js"></script>
         <script src="src/js/RoomListController.js"></script>
         <script src="src/js/LoginController.js"></script>
         <script src="src/js/RoomController.js"></script>
+    </head>
+	<body ng-app="NewIrc">
+		<ul>
+			<li><a href="#/home">Home</a></li>
+			<li><a href="#/about">About</a></li>
+			<li><a href="#/room">Room</a></li>
+			<li><a href="#/login">Login</a></li>
+			<li><a href="#/rooms">Rooms</a></li>
+			<li><a href="#/users">Users</a></li>
+			<li><a href="#/chat">Chat</a></li>
+		</ul>
+		<div ng-view></div>		
 	</body>
 </html>
