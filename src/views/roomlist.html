@@ -1,6 +1,19 @@
 <h3>Hi {{currentUser}} - Active chat rooms</h3>
 <div class="well">
 	<ul ng-repeat="room in rooms">
-		<li><a href="#/room/{{currentUser}}/{{room}}">{{room}}</a></li>
-	</ul>
+          <li><a href="#/room/{{currentUser}}/{{room}}">{{room}}</a></li>
+      </ul>
+
 </div>
+
+
+<!-- kóði til að checka á arrays ekki eiða strax!
+<div ng-if="Array.isArray(rooms)">
+      <ul ng-repeat="room in rooms">
+          <li><a href="#/room/{{currentUser}}/{{room}}">{{room}}</a></li>
+      </ul>
+</div>
+<ul-some-stuff ng-if="!Array.isArray(rooms)" item="rooms">
+          <li><a href="#/room/{{currentUser}}/{{rooms}}">{{rooms}}</a></li>
+</ul-some-stuff> 
+-->
