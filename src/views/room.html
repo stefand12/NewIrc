@@ -11,6 +11,18 @@
 	</ul>
 	
 </div>
+
 <div ng-include="'src/views/chat.html'" id="chatInput"></div>
+
+
+<div class="container">
+<ul ng-repeat="op in ops" id="Opar">
+	<li>(/'.')/ {{op}}</li>
+</ul>
+<ul ng-repeat="user in currentUsers">
+<li>{{user}}</li>
+</ul>
+</div>
+
 
 <!-- cmnd line  -->

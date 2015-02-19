@@ -32,6 +32,7 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 						$scope.errorMessage = reason;
 					} else {
 						console.log("Joined room: " + newRoom.room);
+						$location.path('/room/' + $scope.currentUser +'/'+ newRoom.room);
 					}
 				});
 			}
