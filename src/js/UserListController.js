@@ -1,6 +1,6 @@
 angular.module("NewIrc").controller("UserListController", function ($scope, $location, $rootScope, $routeParams, socket) {
 	
-	$scope. = $routeParams.users;
+	$scope.currentUser = $routeParams.users;
 		console.log("tippauser");
 		socket.emit('users');
 		socket.on('userlist', function (data) {
