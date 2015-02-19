@@ -21,19 +21,6 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 		$scope.errorMessage = '';
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 		$scope.createRoom = function() {
 			var newRoom = {
 				room: $scope.roomName,
@@ -55,12 +42,5 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 				});
 			}
 		};
-		/*socket.on('joinroom', function(a,true){
-			console.log("creating new room");
-		})*/
 	//$scope.rooms = ['Room 1','Room 2','Room 3','Room 4','Room 5'];
-
-
-
-	
 })

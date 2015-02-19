@@ -8,7 +8,7 @@ angular.module("NewIrc", ["ngRoute"]).config(function ($routeProvider) {
 		templateUrl: "src/views/about.html",
 		controller: "AboutController"
 	})
-	.when("/room/:user/:room", {
+	.when("/room/:user/:room/", {
 		templateUrl: "src/views/room.html",
 		controller: "RoomController"
 	})
