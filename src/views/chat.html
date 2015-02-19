@@ -1,2 +1,9 @@
-<div>ChatWindow</div>
-<div>{{message}}</div>
+<span>{{message}}</span>
+
+<div>
+	<div class="form-group">
+		<label for="messageText" class="control-label">Chat</label>
+		<input type="text" class="form-control" name="messageText" id="messageText" ng-model="messageText" />
+	</div>
+	<button type="button" class="btn btn-primary" ng-click="sendMessage()">send</button>
+</div>
