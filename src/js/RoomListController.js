@@ -6,9 +6,13 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 		socket.emit('rooms');
 		socket.on('roomlist', function (data) {
 			var test = [];
-			for(var x in data) {
-				if(x === null){console.log("smurt rassgat !");}
-				test.push(x);
+			var bull = data;
+			var rambo;
+			for(rambo in data) {
+				console.log(rambo);
+				test.push(rambo);
+				console.log(data[rambo].users);
+
 			}; 
 			$scope.rooms = test;
 		});
