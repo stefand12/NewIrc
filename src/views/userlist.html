@@ -1,6 +1,15 @@
-<h3>Hi {{currentUser}} - Active chat rooms</h3>
-<div class="well">
-	<ul ng-repeat="user in users">
-          <li><a href="#/user/{{currentUser}}/{{user}}">{{user}}</a></li>
-      </ul>
-</div>
+<h3>Hi {{user}} - Active chat users</h3>
+
+<nav ng-repeat="user in users" >
+    <ul>
+        <li>
+            <div> {{user}} </div>
+            <ul>
+                <li> <div>Send message</div> </li>
+                <li> <div>kick</div> </li>
+                <li> <div>ban / unban</div> </li>
+                <li> <div>op / deop</div> </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

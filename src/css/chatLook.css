@@ -6,3 +6,33 @@
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 }
+
+
+nav ul ul {
+	display: none;
+}
+
+nav ul li:hover > ul {
+	display: block;
+}
+
+nav ul { 
+	position: relative;
+	display: inline-table;
+	list-style: none;
+}
+
+nav ul li {
+	width: 100px;
+	border: 1px solid red;
+	float: right;
+}
+	
+nav ul ul {
+	position: absolute; top: 0%;
+	position: absolute; left: 100px;
+}
+
+nav ul ul li:hover {
+	background: #4b545f;
+}
