@@ -57,6 +57,11 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		}
 		/* skoða hvað við viljum gera við þetta message */
 	});
+
+	$scope.leaveRoom = function() {
+		socket.emit("partroom", $scope.currentRoom);
+		$location.path('/rooms/' + $scope.currentUser);
+	};
 	
 	/*  */	
 })
