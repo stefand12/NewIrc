@@ -1,4 +1,18 @@
-<div>Room Window</div>
-<div>{{currentUser}}</div>
-<div>{{currentRoom}}</div>
+<h3>Room Window</h3>
 
+
+<div>
+	<li>{{channelTopic}}</li>
+	<ul ng-repeat="message in messages" id="printMessage">
+		<li>{{message.nick}} {{message.timestamp}} </li>
+		<li>{{message.message}}</li>
+	</ul>
+</div>
+
+		
+
+<div class="form-group">
+	<label for="sendMassage" class="control-label">Skilabod</label>
+	<input type="text" class="form-control" id="sendMassage" name="sendMassage" ng-model="sendMassage" />
+</div>
+<button type="button" class="btn btn-primary" ng-click="sendMassage()">Send Massage</button>
