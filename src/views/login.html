@@ -10,11 +10,13 @@
 
 				<div class="form-group">
 					<label for="nickname" class="control-label">Nick-name</label>
-					<input type="text" class="form-control" id="nickname" name="nickname" ng-model="nickname" />
+				<form ng-submit="login()">
+  					<input type="text" class="form-control" id="nickname" name="nickname" ng-model="nickname" />
+  					<button type="submit" ng-click"login()">Enter chat</button>
+				</form>
 				</div>
-
-				<button type="button" class="btn btn-primary" ng-click="login()">Enter chat</button>
 			</div>
 		</div>
+		<div ng-controller="ChatController"></div>
 	</div>
 </div>
