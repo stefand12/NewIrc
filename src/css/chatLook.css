@@ -58,3 +58,20 @@ nav ul ul {
 nav ul ul li:hover {
 	background: #4b545f;
 }
+
+#mainChatRoom {
+	border: 2px solid blue;
+	width: 500px;
+	height: 400px;
+	overflow: auto;
+	-webkit-overflow: auto;
+}
+
+#mainChatRoom ul {
+	list-style: none;
+	padding-left: 0.2cm;
+}
+
+#chatInput {
+	border: 1px black;
+}

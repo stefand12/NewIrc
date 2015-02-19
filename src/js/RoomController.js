@@ -30,17 +30,22 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	/* emitted events */
 	socket.on('updateusers', function (roomName, users, ops) {
 		if(roomName === $scope.currentRoom) {
-			$scope.currentUsers = users;
+			$scope.ops = _.toArray(ops);
+			console.log($scope.ops);
+			$scope.currentUsers = _.toArray(users);
+			console.log($scope.currentUsers);
+			$scope.currentUsers = _.difference($scope.currentUsers, $scope.ops);
+			console.log($scope.currentUsers); 
 		}
 	});
 
 	/* listen for events */
 	socket.on('updatechat', function (roomName, messageHistory) {
 		if(roomName === $scope.currentRoom) {
-				for(mH in messageHistory) {
-					console.log(messageHistory[mH].message);
-				};
-				$scope.messages = messageHistory
+			for(mH in messageHistory) {
+				console.log(messageHistory[mH].message);
+			};
+			$scope.messages = messageHistory
 		}
 	});
 
@@ -65,3 +70,16 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	
 	/*  */	
 })
+
+
+function scrollFunction() {
+	console.log("prumpar");
+	var divScroller = document.getElementById('mainChatRoom');
+	console.log('scrollHeight = ' + divScroller.scrollHeight);
+	divScroller.scrollTop = divScroller.scrollHeight + 200;
+}
+
+/*
+window.setInterval(function() {
+	
+}, 1000);*/
