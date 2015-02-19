@@ -32,3 +32,43 @@ angular.module("NewIrc", ["ngRoute"]).config(function ($routeProvider) {
 		redirectTo: "/login"
 	});
 })
+.service("sharedVariables", function () {
+	var userInfo = '';
+	
+	var setUser = function (user) {
+		userInfo = user;
+	}
+
+	var getUser = function (){
+		return userInfo;
+	}
+
+	var roomInfo = '';
+	
+	var setRoom = function (room) {
+		roomInfo = room;
+	}
+
+	var getRoom = function (){
+		return roomInfo;
+	}
+
+	var tmpArray = [];
+	var setArray = function (objects) {
+		tmpArray.push(objects);
+	}
+
+	var getArray = function (){
+		return tmpArray;
+	}
+
+	return {
+		setUser: setUser,
+		getUser: getUser,
+		setRoom: setRoom,
+		getRoom: getRoom,
+		setArray: setArray,
+		getArray: getArray
+	};
+
+});

@@ -1,15 +1,23 @@
-angular.module("NewIrc").controller("ChatController", function ($scope, $location, $rootScope, $routeParams, socket) {
+angular.module("NewIrc").controller("ChatController", function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
 	$scope.message = "Hello from chat";
-	$scope.messageText = "";
-	$scope.currentUser = $routeParams.users;
-	$scope.currentRoom = $routeParams.room;
+	$scope.msgText = '';
+	$scope.currentUser = sharedVariables.getUser();
+	$scope.currentRoom = sharedVariables.getRoom();
+	console.log("getúser " + sharedVariables.getUser());
+	console.log("getRúm " + sharedVariables.getRoom());
 
-	$scope.login = function() {
+	$scope.sendMessage = function() {
+		console.log($scope.msgText);
+		console.log($scope.currentRoom);
 		var messageObj = {
 				roomName : $scope.currentRoom,
-				msg : $scope.messageText
+				msg : $scope.msgText
 			};
-			socket.emit("sendmsg", messageObj);
-			$scope.message = "";
+		socket.emit("sendmsg", messageObj);
+		socket.on('updatechat', function (roomName, msgHis) {
+			if(roomName === $scope.currentRoom){
+				$scope.msgText = "";
+			}
+		});
 	};
 })

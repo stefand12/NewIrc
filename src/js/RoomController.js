@@ -1,6 +1,9 @@
-angular.module("NewIrc").controller("RoomController", function ($scope, $location, $rootScope, $routeParams, socket) {
+angular.module("NewIrc").controller("RoomController", function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
+	console.log("booboo "+ $routeParams.user);
+	sharedVariables.setUser($routeParams.user);
+	sharedVariables.setRoom($routeParams.room);
 	//$scope.pass = $routeParams.pass;
 	$scope.currentUsers = [];
 	$scope.errorMessage = ''

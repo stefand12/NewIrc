@@ -2,7 +2,7 @@
 // Borrowed from Brian Ford
 // http://briantford.com/blog/angular-socket-io.html
 angular.module("NewIrc").factory('socket', function ($rootScope) {
-    var socket = io.connect('http://localhost:8080');
+    var socket = io.connect('http://localhost:8088');
     return {
         on: function (eventName, callback) {
             socket.on(eventName, function () {

@@ -1,7 +1,16 @@
-<div>
-	<div class="form-group">
-		<label for="messageText" class="control-label">[{{currentUser}}]>>:</label>
-		<input type="text" class="form-control" name="messageText" id="messageText" ng-model="messageText" />
+<div ng-controller="ChatController">
+<div class="container">
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		<div class="panel-heading">{{message}}</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label for="messageText" class="control-label">[ {{currentUser}} ]>>:</label>
+				<input type="text" class="form-control" id="msgText" name="msgText" ng-model="msgText" />
+			</div>
+			<button type="button" class="btn btn-primary" ng-click="sendMessage()">send</button>
+		</div>
 	</div>
-	<button type="button" class="btn btn-primary" ng-click="sendMessage()">send</button>
+	</div>
+</div>
 </div>
