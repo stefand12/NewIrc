@@ -1,15 +1,16 @@
 <h3>Room Window</h3>
 
-<input type="button" class="btn btn-primary" ng-click="leaveRoom()" value="Leave">
 
-<div>
-	<li>{{channelTopic}}</li>
+	<input type="button" class="btn btn-primary" ng-click="leaveRoom()" value="Leave">
+	<div id="topic">{{channelTopic}}</div>
+<div id="mainChatRoom">
+
 	<ul ng-repeat="message in messages" id="printMessage">
-		<li>{{message.nick}} {{message.timestamp}} </li>
-		<li>{{message.message}}</li>
+		<li>{{message.timestamp}}</li>
+		<li>{{message.nick}} says {{message.message}}</li>
 	</ul>
+	
 </div>
-
+<div ng-include="'src/views/chat.html'" id="chatInput"></div>
 
 <!-- cmnd line  -->
-<div ng-include="'src/views/chat.html'"></div>
