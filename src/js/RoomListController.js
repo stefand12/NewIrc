@@ -2,17 +2,14 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 	//TODO GET ROOM LIST
 	//
 		$scope.currentUser = $routeParams.user;
-		console.log("choo");
 		socket.emit('rooms');
 		socket.on('roomlist', function (data) {
 			var test = [];
 			var bull = data;
 			var rambo;
 			for(rambo in data) {
-				console.log(rambo);
+				console.log("room: " + rambo);
 				test.push(rambo);
-				console.log(data[rambo].users);
-
 			}; 
 			$scope.rooms = test;
 		});
@@ -28,17 +25,14 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 			};
 
 			if($scope.roomName === '') {
-				console.log("rassgataPíka");
 				$scope.errorMessage = "Choose a name for your channel";
-			}
-			else {
-				console.log("píka");
+			} else {
 				socket.emit('joinroom', newRoom, function (succsess, reason) {
-					if(!succsess){
+					if(!succsess) {
 						$scope.errorMessage = reason;
+					} else {
+						console.log("Joined room: " + newRoom.room);
 					}
-					else
-						{console.log("mamma");}
 				});
 			}
 		};

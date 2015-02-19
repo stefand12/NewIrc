@@ -17,45 +17,41 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		room:$routeParams.room,
 		pass:''//$routeParams.pass /*mögulega skoða einhvert annað form*/
 	};
-	if(test){console.log("room "+ test);}
-		socket.emit('joinroom', test, function (success, reason) {
-			console.log("emit called with room name: " + $routeParams.room);
-		if (!success) {
-				$scope.errorMessage = reason;
-			}
-		});
+	socket.emit('joinroom', test, function (success, reason) {
+		console.log("joinroom emitted with room name: " + $routeParams.room);
+	if (!success) {
+			$scope.errorMessage = reason;
+		}
+	});
 
 	/* emitted events */
 	socket.on('updateusers', function (roomName, users, ops) {
-		console.log(roomName);
-		console.log(users);
-		for(x in users) {
-			console.log(x);
+		if(roomName === $scope.currentRoom) {
+			$scope.currentUsers = users;
 		}
-		console.log(ops);
-		for(y in ops){
-			console.log(y);
-		}
-		$scope.currentUsers = users;
 	});
 
 	/* listen for events */
 	socket.on('updatechat', function (roomName, messageHistory) {
-		if(messageHistory !== undefined) {
-			for(mH in messageHistory){
-				console.log(messageHistory[mH].message);
-			};
-			$scope.messages = messageHistory
+		if(roomName === $scope.currentRoom) {
+				for(mH in messageHistory) {
+					console.log(messageHistory[mH].message);
+				};
+				$scope.messages = messageHistory
 		}
 	});
 
 	socket.on('updatetopic', function (roomName, roomTopic, user) {
-			console.log(roomTopic);
+		console.log(roomTopic);
+		if(roomName === $scope.currentRoom){
 			$scope.channelTopic = roomTopic;
+		}
 	});
 
 	socket.on('servermessage', function (tag, roomName, user) {
-		console.log(user + " " + tag + "ed " + roomName);
+		if(roomName === $scope.currentRoom){
+			console.log(user + " " + tag + "ed " + roomName);
+		}
 		/* skoða hvað við viljum gera við þetta message */
 	});
 	
