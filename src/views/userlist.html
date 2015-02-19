@@ -1,2 +1,6 @@
-<div>Users Window</div>
-<div>{{message}}</div>
+<h3>Hi {{currentUser}} - Active chat rooms</h3>
+<div class="well">
+	<ul ng-repeat="user in users" >
+          <li>{{user}}</li>
+      </ul>
+</div>
