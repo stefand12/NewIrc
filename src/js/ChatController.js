@@ -6,10 +6,10 @@ angular.module("NewIrc").controller("ChatController", function ($scope, $locatio
 
 	$scope.login = function() {
 		var messageObj = {
-				nick : socket.username,
-				timestamp :  new Date(),
-				message : messageText.substring(0, 200)
+				roomName : $scope.currentRoom,
+				msg : $scope.messageText
 			};
-			rooms[$scope.currentRoom].addMessage(messageObj);
+			socket.emit("sendmsg", messageObj);
+			$scope.message = "";
 	};
 })
