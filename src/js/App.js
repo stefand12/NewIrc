@@ -37,30 +37,30 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 	
 	var setUser = function (user) {
 		userInfo = user;
-	}
+	};
 
 	var getUser = function (){
 		return userInfo;
-	}
+	};
 
 	var roomInfo = '';
 	
 	var setRoom = function (room) {
 		roomInfo = room;
-	}
+	};
 
 	var getRoom = function (){
 		return roomInfo;
-	}
+	};
 
 	var tmpArray = [];
 	var setArray = function (objects) {
 		tmpArray.push(objects);
-	}
+	};
 
 	var getArray = function (){
 		return tmpArray;
-	}
+	};
 
 	return {
 		setUser: setUser,

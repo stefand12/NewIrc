@@ -6,8 +6,8 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	sharedVariables.setRoom($routeParams.room);
 	//$scope.pass = $routeParams.pass;
 	$scope.currentUsers = [];
-	$scope.errorMessage = ''
-	$scope.channelTopic = ''
+	$scope.errorMessage = '';
+	$scope.channelTopic = '';
 	$scope.ops = [];
 	$scope.messages = []; 
 	$scope.glued = true;
@@ -43,9 +43,9 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	/* listen for events */
 	socket.on('updatechat', function (roomName, messageHistory) {
 		if(roomName === $scope.currentRoom) {
-			for(mH in messageHistory) {
+			for(var mH in messageHistory) {
 				console.log(messageHistory[mH].message);
-			};
+			}
 			$scope.messages = messageHistory;
 		}
 	});
@@ -70,6 +70,6 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	};
 	
 	/*  */	
-})
+});
 
 

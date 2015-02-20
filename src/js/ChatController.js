@@ -20,5 +20,5 @@ angular.module("NewIrc").controller("ChatController", function ($scope, $locatio
 			}
 		});
 	};
-})
+});
 
