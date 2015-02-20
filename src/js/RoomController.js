@@ -10,6 +10,7 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	$scope.channelTopic = ''
 	$scope.ops = [];
 	$scope.messages = []; 
+	$scope.glued = true;
 	/*
 	* .nick
 	* .timestamp
@@ -45,7 +46,7 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 			for(mH in messageHistory) {
 				console.log(messageHistory[mH].message);
 			};
-			$scope.messages = messageHistory
+			$scope.messages = messageHistory;
 		}
 	});
 
@@ -72,14 +73,3 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 })
 
 
-function scrollFunction() {
-	console.log("prumpar");
-	var divScroller = document.getElementById('mainChatRoom');
-	console.log('scrollHeight = ' + divScroller.scrollHeight);
-	divScroller.scrollTop = divScroller.scrollHeight + 200;
-}
-
-/*
-window.setInterval(function() {
-	
-}, 1000);*/

@@ -3,9 +3,8 @@
 
 	<input type="button" class="btn btn-primary" ng-click="leaveRoom()" value="Leave">
 	<div id="topic">{{channelTopic}}</div>
-<div id="mainChatRoom">
-
-	<ul ng-repeat="message in messages" id="printMessage">
+<div id="mainChatRoom" scroll-glue>
+	<ul ng-repeat="message in messages" id="printMessage" autoscroll="">
 		<li>{{message.timestamp}}</li>
 		<li>{{message.nick}} says {{message.message}}</li>
 	</ul>
@@ -14,14 +13,13 @@
 
 <div ng-include="'src/views/chat.html'" id="chatInput"></div>
 
-
 <div class="container">
-<ul ng-repeat="op in ops" id="Opar">
-	<li>(/'.')/ {{op}}</li>
-</ul>
-<ul ng-repeat="user in currentUsers">
-<li>{{user}}</li>
-</ul>
+	<ul ng-repeat="op in ops" id="Opar">
+		<li>(/'.')/ {{op}}</li>
+	</ul>
+	<ul ng-repeat="user in currentUsers">
+		<li>{{user}}</li>
+	</ul>
 </div>
 
 
