@@ -1,5 +1,5 @@
 angular.module("NewIrc").controller("ChatController", function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
-	$scope.message = "Hello from chat";
+	$scope.message = "You are logged in as:";
 	$scope.msgText = '';
 	$scope.currentUser = sharedVariables.getUser();
 	$scope.currentRoom = sharedVariables.getRoom();
