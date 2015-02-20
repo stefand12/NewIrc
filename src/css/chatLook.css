@@ -1,15 +1,17 @@
-.test {
-	border: 2px solid blue;
-	width: 100px;
-	height: 200px;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-	
+body {
+	border: 2px solid black;
 }
 
-.test ul {
-	padding-left: 0cm;
-	list-style: none;
+.userList {
+	border: 2px solid red;
+	width: 250px;
+	height: 400px;
+	overflow-y: scroll;
+	float: left;
+	margin: 2px;
+	z-index: 1000;
+	overflow-x:hidden;
+	direction: rtl;
 }
 
 a:link {
@@ -30,36 +32,44 @@ a:active {
 	text-decoration: none;
 }
 
-nav ul ul {
+.test ul ul {
 	display: none;
 }
 
-nav ul li:hover > ul {
+.test ul li:hover > ul {
 	display: block;
 }
 
-nav ul { 
+.test ul { 
+	clear: both;
 	position: relative;
 	display: inline-table;
 	list-style: none;
+	padding-left: 0px;
+	padding-right: 50%;
 }
 
-nav ul li {
+.test ul li {
 	width: 100px;
 	border: 1px solid red;
 	float: right;
+	direction: ltr;
 }
 	
-nav ul ul {
-	position: absolute; top: 0%;
-	position: absolute; left: 100px;
+.test ul ul {
+	z-index: 1000;
+	position: absolute; 
+	top: 0;
+	left: 100px;
 }
 
-nav ul ul li:hover {
+.test ul ul li:hover {
 	background: #4b545f;
 }
 
 #mainChatRoom {
+	float: left;
+	margin-left: 50px;
 	border: 2px solid blue;
 	width: 500px;
 	height: 400px;
@@ -72,6 +82,14 @@ nav ul ul li:hover {
 	padding-left: 0.2cm;
 }
 
-#chatInput {
-	border: 1px black;
+
+
+
+#foo {
+	float:left;
+	border: 2px solid orange;
+}
+
+#smuu {
+	border: 2px solid yellow;
 }

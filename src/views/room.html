@@ -1,26 +1,46 @@
 <h3>Room Window</h3>
 
-
-	<input type="button" class="btn btn-primary" ng-click="leaveRoom()" value="Leave">
-	<div id="topic">{{channelTopic}}</div>
-<div id="mainChatRoom" scroll-glue>
-	<ul ng-repeat="message in messages" id="printMessage" autoscroll="">
-		<li>{{message.timestamp}}</li>
-		<li>{{message.nick}} says {{message.message}}</li>
-	</ul>
-	
+<div id="foo">
+	<input type="button" id="leaveButton" ng-click="leaveRoom()" value="Leave">
+	<div id="topic">{{channelTopic}} topic </div>
 </div>
 
-<div ng-include="'src/views/chat.html'" id="chatInput"></div>
-
-<div class="container">
-	<ul ng-repeat="op in ops" id="Opar">
-		<li>(/'.')/ {{op}}</li>
-	</ul>
-	<ul ng-repeat="user in currentUsers">
-		<li>{{user}}</li>
-	</ul>
+<div id="smuu">
+	<div id="mainChatRoom" scroll-glue>
+		<ul ng-repeat="message in messages" id="printMessage" autoscroll="">
+			<li>{{message.timestamp}}</li>
+			<li>{{message.nick}} says {{message.message}}</li>
+		</ul>
+	</div>
+	<div ng-include="'src/views/chat.html'" id="chatInput"></div>
 </div>
 
+<div class="userList">
+	<nav class="test">
+		<ul ng-repeat="op in ops" id="Opar">
+			<li>
+				<div>(/'.')/ {{op}}</div>
+				<ul>
+	                <li> <div>Send message</div> </li>
+	                <li> <div>kick</div> </li>
+	                <li> <div>ban</div> </li>
+	                <li> <div>unban</div> </li>
+	                <li> <div>op / deop</div> </li>
+	            </ul>
+			</li>
+		</ul>
+		<ul ng-repeat="user in currentUsers">
+			<li>
+				<div>{{user}}</div>
+				<ul>
+	                <li> <div>Send message</div> </li>
+	                <li> <div>kick</div> </li>
+	                <li> <div>ban / unban</div> </li>
+	                <li> <div>op / deop</div> </li>
+	            </ul>
+			</li>
+		</ul>
+	</nav>
+</div>
 
 <!-- cmnd line  -->
