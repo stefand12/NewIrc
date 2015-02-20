@@ -17,4 +17,4 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 			});			
 		}
 	};
-})
+});

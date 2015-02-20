@@ -2,8 +2,13 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	var taskConfig = {
 	  	jshint: {
-	   		src: ['src/**/*.js'],
-	    	gruntfile: ['Gruntfile.js'],
+	   		all: [
+	   			'src/js/*.js',
+	   			'!src/js/socket.io.min.js',
+	   		],
+	    	gruntfile: [
+	    		'Gruntfile.js'
+	    	],
 	    	options: {
 	     		curly:  true,
 				immed:  true,
