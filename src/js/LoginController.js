@@ -11,7 +11,7 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 					console.log("logged in as " + $scope.nickname);
 					$location.path('/rooms/' + $scope.nickname);
 				} else {
-					console.log("ertu endaþarms blóðmörskeppur ? ");
+					console.log("nei ekki hægt ");
 					$scope.errorMessage = 'This nick-name is already taken!';
 				}
 			});			

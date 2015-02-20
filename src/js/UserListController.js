@@ -7,9 +7,7 @@ angular.module("NewIrc").controller("UserListController", function ($scope, $loc
 			var listtest = [];
 			for(var x in data){
 			listtest.push(data[x]);
-			}; 
+			}
 			$scope.users = listtest;
-
+		});
 });
-
-})

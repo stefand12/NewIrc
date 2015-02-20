@@ -10,7 +10,7 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 			for(rambo in data) {
 				console.log("room: " + rambo);
 				test.push(rambo);
-			}; 
+			}
 			$scope.rooms = test;
 		});
 
@@ -38,4 +38,4 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 			}
 		};
 	//$scope.rooms = ['Room 1','Room 2','Room 3','Room 4','Room 5'];
-})
+});
