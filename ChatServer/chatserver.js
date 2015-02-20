@@ -190,7 +190,10 @@ io.sockets.on('connection', function (socket) {
 		console.log(socket.username + " opped " + opObj.user + " from " + opObj.room);
 		if(rooms[opObj.room].ops[socket.username] !== undefined) {
 			//Remove the user from the room roster.
-			delete rooms[opObj.room].users[opObj.user];
+
+			/* Þessi lína conflictar við hegðun í þegar rás er búin til */
+			// delete rooms[opObj.room].users[opObj.user];
+			
 			//Op the user.
 			rooms[opObj.room].ops[opObj.user] = opObj.user;
 			//Broadcast to the room who got opped.
@@ -211,8 +214,16 @@ io.sockets.on('connection', function (socket) {
 		if(rooms[deopObj.room].ops[socket.username] !== undefined) {
 			//Remove the user from the room op roster.
 			delete rooms[deopObj.room].ops[deopObj.user];
+			
 			//Add the user to the room roster.
-			rooms[deopObj.room].users[deopObj.user] = deopObj.user;
+			
+			/* Þessi lína conflictar við hegðun þegar rás er búin til
+			þ.e. sá sem býr til roomið verður automatic op
+			og user í herberginu, er ekki að fara breyta kóðanum sem ég
+			gerði til að höndla það annarstaðar þegar ég get commentað eina línu hér */
+			
+			// rooms[deopObj.room].users[deopObj.user] = deopObj.user;
+
 			//Broadcast to the room who got opped.
 			io.sockets.emit('deopped', deopObj.room, deopObj.user, socket.username);
 			//Update user list for room.
