@@ -17,15 +17,16 @@
 
 <div class="userList">
 	<nav class="test">
-		<ul ng-repeat="op in ops" id="Opar">
+		<ul ng-repeat="op in bubbar" id="Opar">
 			<li>
 				<div>(/'.')/ {{op}}</div>
 				<ul>
 	                <li> <div>Send message</div> </li>
-	                <li> <div>kick</div> </li>
-	                <li> <div>ban</div> </li>
+	                <li> <input type="submit" ng-click="kick(op)" value="kick" /> </li>
+	                <li> <input type="submit" ng-click="ban(op)" value="ban" /> </li>
 	                <li> <div>unban</div> </li>
-	                <li> <div>op / deop</div> </li>
+	                <li> <input type="submit" ng-click="doOp(op)" value="op" /> </li>
+	                <li> <input type="submit" ng-click="doDeop(op)" value="deop" /> </li>
 	            </ul>
 			</li>
 		</ul>
@@ -34,9 +35,11 @@
 				<div>{{user}}</div>
 				<ul>
 	                <li> <div>Send message</div> </li>
-	                <li> <div>kick</div> </li>
-	                <li> <div>ban / unban</div> </li>
-	                <li> <div>op / deop</div> </li>
+	                <li> <input type="submit" ng-click="kick(user)" value="kick" /> </li>
+	                <li> <input type="submit" ng-click="ban(user)" value="ban" /> </li>
+	                <li> <div>unban</div> </li>
+	                <li> <input type="submit" ng-click="doOp(user)" value="op" /> </li>
+	                <li> <input type="submit" ng-click="doDeop(user)" value="deop" /> </li>
 	            </ul>
 			</li>
 		</ul>
