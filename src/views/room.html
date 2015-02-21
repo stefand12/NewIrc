@@ -1,11 +1,16 @@
 <h3>Room Window</h3>
+
                             <div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
                                 {{errorMessage}}
                             </div>
+
+
 <div class="container">
 	<div class="row " style="padding-top:40px;">
 		<div class="col-md-8">
-			<div class="panel panel-info">
+
+			<div class="panel panel-primary">
+
 				<div class="panel-heading">
 					{{channelTopic}} topic 
 					<input type="button" id="leaveButton" ng-click="leaveRoom()" value="         ">
