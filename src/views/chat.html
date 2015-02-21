@@ -1,27 +1,16 @@
-<ul>
-      <li><a href="#/home">Home</a></li>
-      <li><a href="#/about">About</a></li>
-      <li><a href="#/room">Room</a></li>
-      <li><a href="#/login">Login</a></li>
-      <li><a href="#/rooms">Rooms</a></li>
-      <li><a href="#/users">Users</a></li>
-      <li><a href="#/chat">Chat</a></li>
-    </ul>
-<div id="chatInput">
-	<div ng-controller="ChatController">
-		<div class="container">
-			<div class="col-md-4">
+<div ng-controller="ChatController">
+	<div class="container">
+		<div class="row " style="padding-top:0px;">
+			<div class="col-md-8">
 				<div class="panel panel-primary">
-					<div class="panel-heading">{{message}}</div>
-					<div class="panel-body">
-						<div class="form-group">
-							<label for="messageText" class="control-label"> {{currentUser}} </label>
-							<form>
-								<input type="text" class="form-control" placeholder="message" id="msgText" name="msgText" ng-model	="msgText" />
-								<input type="submit" class="btn btn-primary" ng-click="sendMessage()" value="send"/>
-							</form>
-						</div>
-					</div>
+					<div class="panel-heading">
+					<form>
+							<label class="sr-only">User:</label>
+							<p class="form-control-static">{{currentUser}}</p>
+							<input type="text" class="form-control" placeholder="message" id="msgText" name="msgText" ng-model="msgText" />
+						<input type="submit" class="btn btn-primary" ng-click="sendMessage()" value="send"/>
+					</form>
+					</div
 				</div>
 			</div>
 		</div>

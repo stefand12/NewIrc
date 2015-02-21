@@ -26,16 +26,7 @@
     </head>
 
 	<body ng-app="NewIrc">
-		<ul>
-			<li><a href="#/home">Home</a></li>
-			<li><a href="#/about">About</a></li>
-			<li><a href="#/room">Room</a></li>
-			<li><a href="#/login">Login</a></li>
-			<li><a href="#/rooms">Rooms</a></li>
-			<li><a href="#/users">Users</a></li>
-			<li><a href="#/chat">Chat</a></li>
-		</ul>
-
+        <div ng-include="'src/views/home.html'"></div>
 		<div ng-view></div>	
 	</body>
     <script src="\bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
