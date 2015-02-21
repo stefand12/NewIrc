@@ -95,6 +95,9 @@ var password_prompt = function (label_message, button_message, arg3, arg4, arg5)
     window.addEventListener("resize", resize, false);
 };
 
+
+/* Chat room controller */
+
 angular.module("NewIrc").controller("RoomController", function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
@@ -122,22 +125,12 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		console.log("joinroom emitted with room name: " + $routeParams.room);
 	if (!success) {
 		if(reason === "wrong password") {
-
 			password_prompt("Please enter your password:", "Submit", function (passWrd) {
 				$rootScope.$apply(function () {
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
 				});
 			});
-
-
-			
-			//console.log("hér er password " + password);
-			/*
-			var passWrd = password_prompt("Enter password", "Submit");
-			console.log(passWrd);
-			$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);*/
 		}
-
 			$scope.errorMessage = reason;
 		}
 	});
@@ -166,8 +159,10 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 
 	socket.on('updatetopic', function (roomName, roomTopic, user) {
 		console.log(roomTopic);
-		if(roomName === $scope.currentRoom){
+		if(roomName === $scope.currentRoom) {
 			$scope.channelTopic = roomTopic;
+			console.log(user + " changed the topic to: " + roomTopic);
+			$scope.newTopic = '';
 		}
 	});
 
@@ -241,6 +236,20 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	$scope.leaveRoom = function () {
 		socket.emit("partroom", $scope.currentRoom);
 		$location.path('/rooms/' + $scope.currentUser);
+	};
+
+	$scope.changeTopic = function () {
+		var tmpObj = {
+			topic: $scope.newTopic,
+			room: $scope.currentRoom
+		};
+		console.log("topic topic: " + tmpObj.topic);
+		console.log("topic room: " + tmpObj.room);
+		socket.emit('settopic', tmpObj, function (success) {
+			if(!success) {
+				console.log("Really you non (/'.')/ you can't set topiczes !");
+			}
+		});
 	};
 	
 	/*  */	

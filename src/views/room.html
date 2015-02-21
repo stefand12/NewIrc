@@ -12,8 +12,11 @@
 			<div class="panel panel-primary">
 
 				<div class="panel-heading">
-					{{channelTopic}} topic 
-					<input type="button" id="leaveButton" ng-click="leaveRoom()" value="         ">
+					<form>
+						<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
+						<input type="submit" class="btn btn-primary" ng-click="changeTopic()" value="change"/>
+					</form>
+					<input type="button" id="leaveButton" ng-click="leaveRoom()" value="      ">
 				</div>
 				<div id="mainChatRoom" scroll-glue>
 					<div class="panel-body">
