@@ -18,10 +18,10 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 		$scope.errorMessage = '';
 
 
-		$scope.createRoom = function() {
+		$scope.createRoom = function (password) {
 			var newRoom = {
 				room: $scope.roomName,
-				pass: undefined
+				pass: password
 			};
 
 			if($scope.roomName === '') {
