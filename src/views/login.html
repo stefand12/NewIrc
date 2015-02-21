@@ -1,26 +1,30 @@
+<header class="page-header">
+  <h1>Welcome to NewIrc</h1>
+</header>
 <div class="container">
-                <div class="row vertical-offset-100">
-                    <div class="col-md-4 col-md-offset-4">
-                        <div class="panel panel-default">
-                            <div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
-                                {{errorMessage}}
-                            </div>
-                            <div class="panel-heading">
-                            	Choose a Nick-name and login
-                            </div>
-                            <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" class="form-signin">
-                                    <fieldset>
-                                        <label class="panel-login">
-                                            <div class="login_result"></div>
-                                        </label>
-                                        <input class="form-control" placeholder="Nick-name" id="nickname" name="nickname" ng-model="nickname" type="text">
-                                        <br></br>
-                                        <input class="btn btn-primary btn-block" type="submit" ng-click="login()" value="Login »">
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+    <div class="row vertical-offset-100">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-primary">
+                <div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
+                {{errorMessage}}
+                </div>
+                <div class="panel-heading">
+                        Choose a Nick-name and then push login
+                </div>
+                <div class="panel-body">
+                    <form accept-charset="UTF-8" role="form" class="form-signin">
+                        <fieldset>
+                            <label class="panel-login">
+                            	<div class="login_result"></div>
+                            </label>
+                                <input class="form-control" placeholder="Type in Nick-name..." id="nickname" name="nickname" ng-model="nickname" type="text">
+                                <br></br>
+                                <input class="btn btn-primary btn-block" type="submit" ng-click="login()" value="Login »">
+                        </fieldset>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="src/css/chatLook.css" />

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="NewIrc">
     <head>
     	<meta charset="utf-8">
         <title>Routing test</title>
@@ -21,17 +21,9 @@
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="src/css/chatLook.css" />
     </head>
-	<body ng-app="NewIrc">
+	<body>
 
-		<ul>
-			<li><a href="#/home">Home</a></li>
-			<li><a href="#/about">About</a></li>
-			<li><a href="#/room">Room</a></li>
-			<li><a href="#/login">Login</a></li>
-			<li><a href="#/rooms">Rooms</a></li>
-			<li><a href="#/users">Users</a></li>
-			<li><a href="#/chat">Chat</a></li>
-		</ul>
+		
 		<div ng-view></div>	
 	</body>
 
