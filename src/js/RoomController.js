@@ -8,7 +8,7 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	$scope.currentUsers = [];
 	$scope.errorMessage = '';
 	$scope.channelTopic = '';
-	$scope.ops = [];
+	$scope.bubbar = [];
 	$scope.messages = []; 
 	$scope.glued = true;
 	/*
@@ -31,12 +31,12 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	/* emitted events */
 	socket.on('updateusers', function (roomName, users, ops) {
 		if(roomName === $scope.currentRoom) {
-			$scope.ops = _.toArray(ops);
-			console.log($scope.ops);
+			$scope.bubbar = _.toArray(ops);
+			console.log($scope.bubbar);
 			$scope.currentUsers = _.toArray(users);
 			console.log($scope.currentUsers);
-			$scope.currentUsers = _.difference($scope.currentUsers, $scope.ops);
-			console.log($scope.currentUsers); 
+			$scope.currentUsers = _.difference($scope.currentUsers, $scope.bubbar);
+			console.log($scope.currentUsers);
 		}
 	});
 
@@ -64,52 +64,52 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		/* skoða hvað við viljum gera við þetta message */
 	});
 
-	$scope.opdeop = function (user) {
-		if($scope.ops[user] !== undefined){
-			var tmpObj = {
-				user: user,
-				room: $scope.currentRoom
-			};
-			socket.emit('deop', tmpObj, function (success) {
-				if(!success){
-					console.log("You're not an (/'.')/ you can't deop peepz");
-				}
-			});
-		} else {
-			var tmpObj = {
-				user: user,
-				room: $scope.currentRoom
-			};
-			socket.emit('op', tmpObj, function (success) {
-				if(!success){
-					console.log("You're not an (/'.')/ you can't op peepz");
-				}
-			});
-		}		
+	$scope.doOp = function (looser) {
+		var tmpObj = {
+			user: looser,
+			room: $scope.currentRoom
+		};
+		socket.emit('op', tmpObj, function (success) {
+			if(!success) {
+				console.log("You're not an (/'.')/ you can't op peepz");
+			}
+		});		
+	};
+
+	$scope.doDeop = function (looser) {
+		var tmpObj = {
+			user: looser,
+			room: $scope.currentRoom
+		};
+		socket.emit('deop', tmpObj, function (success) {
+			if(!success) {
+				console.log("You're not an (/'.')/ you can't deop peepz");
+			}
+		});
 	};
 
 	$scope.ban = function (user) {
-			var tmpObj = {
-				user: user,
-				room: $scope.currentRoom
-			};
-			socket.emit('ban', tmpObj, function (success) {
-				if(!success){
-					console.log("You're not an (/'.')/ you can't ban peepz");
-				}
-			});	
+		var tmpObj = {
+			user: user,
+			room: $scope.currentRoom
+		};
+		socket.emit('ban', tmpObj, function (success) {
+			if(!success){
+				console.log("You're not an (/'.')/ you can't ban peepz");
+			}
+		});	
 	};
 
 	$scope.unban = function (user) {
-			var tmpObj = {
-				user: user,
-				room: $scope.currentRoom
-			};
-			socket.emit('ban', tmpObj, function (success) {
-				if(!success){
-					console.log("You're not an (/'.')/ you can't unban peepz");
-				}
-			});
+		var tmpObj = {
+			user: user,
+			room: $scope.currentRoom
+		};
+		socket.emit('ban', tmpObj, function (success) {
+			if(!success){
+				console.log("You're not an (/'.')/ you can't unban peepz");
+			}
+		});
 	};
 
 	$scope.kick = function (user) {

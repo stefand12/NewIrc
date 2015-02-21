@@ -221,8 +221,7 @@ io.sockets.on('connection', function (socket) {
 			þ.e. sá sem býr til roomið verður automatic op
 			og user í herberginu, er ekki að fara breyta kóðanum sem ég
 			gerði til að höndla það annarstaðar þegar ég get commentað eina línu hér */
-			
-			// rooms[deopObj.room].users[deopObj.user] = deopObj.user;
+			//rooms[deopObj.room].users[deopObj.user] = deopObj.user;
 
 			//Broadcast to the room who got opped.
 			io.sockets.emit('deopped', deopObj.room, deopObj.user, socket.username);
