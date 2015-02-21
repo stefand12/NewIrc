@@ -1,7 +1,7 @@
 <h3>Hi {{currentUser}} - Active chat rooms</h3>
 <div class="test">
 	<ul ng-repeat="room in rooms">
-          <li><a href="#/room/{{currentUser}}/{{room}}">{{room}}</a></li>
+          <li><a href="#/room/{{currentUser}}/{{room}}/''">{{room}}</a></li>
       </ul>
 </div>
 <div class="form-group">
@@ -9,7 +9,7 @@
     <form ng-submit="createRoom()">
 	    <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" />
 
-      <input type="text" class="form-control" id="password" name="password" ng-model="password" />
+        <input type="password" class="form-control" id="password" name="password" ng-model="password" />
 
         <button type="submit" class="btn btn-primary" ng-click="createRoom(password)">Create new room</button>
     </form>

@@ -8,7 +8,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 		templateUrl: "src/views/about.html",
 		controller: "AboutController"
 	})
-	.when("/room/:user/:room/", {
+	.when("/room/:user/:room/:pass", {
 		templateUrl: "src/views/room.html",
 		controller: "RoomController"
 	})

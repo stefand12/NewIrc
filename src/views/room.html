@@ -1,16 +1,15 @@
 <h3>Room Window</h3>
-
+                            <div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
+                                {{errorMessage}}
+                            </div>
 <div class="container">
 	<div class="row " style="padding-top:40px;">
 		<div class="col-md-8">
-
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					{{channelTopic}} topic 
 					<input type="button" id="leaveButton" ng-click="leaveRoom()" value="         ">
 				</div>
-				
-
 				<div id="mainChatRoom" scroll-glue>
 					<div class="panel-body">
 						<ul ng-repeat="message in messages" id="printMessage" autoscroll="" class="media-list"  >
@@ -28,19 +27,10 @@
 	                            </div>
                         	</li>
 						</ul>
-						
 					</div>
 				</div>
-
 			</div>
-
 		</div>
-
-
-
-
-
-
         <div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -64,8 +54,6 @@
 							</div>
 						
 					</div>
-
-
 					<div ng-repeat="user in currentUsers">
 						
 							<div class="dropdown">
