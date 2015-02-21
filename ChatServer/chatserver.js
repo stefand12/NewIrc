@@ -21,7 +21,15 @@ io.sockets.on('connection', function (socket) {
 	socket.on('adduser', function(username, fn){
 
 		//Check if username is avaliable.
-		if (users[username] === undefined && username.toLowerCase != "server" && username.length < 21) {
+			/*
+			*	username.toLowerCase != "server"
+			*	skilaði alltaf true þar af leiðandi var hægt að heita server
+			*	gerði ráð fyrir því að það var eitthvað sem átti að vera bannað 
+			*	þannig að ég breytti því yfir í toLoserCase() !== "server" sem skilar false
+			*	ef input er server, Server eða einhver afbrygði af því.
+			*/
+
+		if (users[username] === undefined && username.toLowerCase() !== "server" && username.length < 21) {
 			socket.username = username;
 
 			//Store user object in global user roster.
