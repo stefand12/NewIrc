@@ -1,20 +1,20 @@
-<div ng-controller="ChatController">
-	<div class="container">
-		<div class="col-md-4">
-			<div class="panel panel-default">
-			<div class="panel-heading">{{message}}</div>
-			<div class="panel-body">
-				<div class="form-group">
-					<label for="messageText" class="control-label"> {{currentUser}} </label>
-					<form>
-						<input type="text" class="form-control" 	id="msgText" name="msgText" ng-model	="msgText" />
-						<input type="submit" class="btn btn-primary" ng-click="sendMessage()" value="send"/>
-					</form>
+<div id="chatInput">
+	<div ng-controller="ChatController">
+		<div class="container">
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">{{message}}</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="messageText" class="control-label"> {{currentUser}} </label>
+							<form>
+								<input type="text" class="form-control" 	id="msgText" name="msgText" ng-model	="msgText" />
+								<input type="submit" class="btn btn-primary" ng-click="sendMessage()" value="send"/>
+							</form>
+						</div>
+					</div>
 				</div>
-
-
 			</div>
-		</div>
 		</div>
 	</div>
 </div>

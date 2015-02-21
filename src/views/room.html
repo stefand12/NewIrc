@@ -1,46 +1,93 @@
 <h3>Room Window</h3>
 
-<div id="foo">
-	<input type="button" id="leaveButton" ng-click="leaveRoom()" value="Leave">
-	<div id="topic">{{channelTopic}} topic </div>
-</div>
+<div class="container">
+	<div class="row " style="padding-top:40px;">
+		<div class="col-md-8">
 
-<div id="smuu">
-	<div id="mainChatRoom" scroll-glue>
-		<ul ng-repeat="message in messages" id="printMessage" autoscroll="">
-			<li>{{message.timestamp}}</li>
-			<li>{{message.nick}} says {{message.message}}</li>
-		</ul>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					{{channelTopic}} topic 
+					<input type="button" id="leaveButton" ng-click="leaveRoom()" value="         ">
+				</div>
+				
+
+				<div id="mainChatRoom" scroll-glue>
+					<div class="panel-body">
+						<ul ng-repeat="message in messages" id="printMessage" autoscroll="" class="media-list"  >
+							<li class="media">
+	                            <div class="media-body" >
+	                                <div class="media">
+	                                    <div class="media-body" >
+	                                        {{message.message}}
+	                                        <br />
+	                                       <small class="text-muted">{{message.nick}} | {{message.timestamp}}</small>
+	                                        <hr />
+	                                    </div>
+	                                </div>
+
+	                            </div>
+                        	</li>
+						</ul>
+						
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                   ONLINE USERS
+                </div>
+				  	<div class="btn-group-vertical" role="group" aria-label="...">            
+						<div ng-repeat="op in ops">
+							<div class="dropdown" >
+							 	<button class="btn btn-default dropdown-toggle" type="button" id="{{op}}" data-toggle="dropdown" aria-expanded="false">
+							    (/'.')/ {{op}}
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="{{op}}">
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Send Message" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(op)" value="Kick" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(op)" value="BAN" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Unban" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(op)" value="Op" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeOp(op)" value="DeOp" /></li>
+							  </ul>
+							</div>
+						
+					</div>
+
+
+					<div ng-repeat="user in currentUsers">
+						
+							<div class="dropdown">
+							  <button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
+							    {{user}}
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Send Message" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(user)" value="Kick" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(user)" value="BAN" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Unban" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(user)" value="Op" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeOp(user)" value="DeOp" /></li>
+							  </ul>
+							</div>
+					</div>
+				</div>
+            </div>  
+        </div>
 	</div>
-	<div ng-include="'src/views/chat.html'" id="chatInput"></div>
 </div>
-
-<div class="userList">
-	<nav class="test">
-		<ul ng-repeat="op in ops" id="Opar">
-			<li>
-				<div>(/'.')/ {{op}}</div>
-				<ul>
-	                <li> <div>Send message</div> </li>
-	                <li> <div>kick</div> </li>
-	                <li> <div>ban</div> </li>
-	                <li> <div>unban</div> </li>
-	                <li> <div>op / deop</div> </li>
-	            </ul>
-			</li>
-		</ul>
-		<ul ng-repeat="user in currentUsers">
-			<li>
-				<div>{{user}}</div>
-				<ul>
-	                <li> <div>Send message</div> </li>
-	                <li> <div>kick</div> </li>
-	                <li> <div>ban / unban</div> </li>
-	                <li> <div>op / deop</div> </li>
-	            </ul>
-			</li>
-		</ul>
-	</nav>
-</div>
-
 <!-- cmnd line  -->
+<div ng-include="'src/views/chat.html'" id="Input"></div>

@@ -1,9 +1,5 @@
-body {
-	border: 2px solid black;
-}
-
 .userList {
-	border: 2px solid red;
+	border: 2px solid blue;
 	width: 250px;
 	height: 400px;
 	overflow-y: scroll;
@@ -32,15 +28,20 @@ a:active {
 	text-decoration: none;
 }
 
-.test ul ul {
+nav {
+	height: 500px;
+}
+
+nav ul ul {
 	display: none;
 }
 
-.test ul li:hover > ul {
+nav ul li:hover   {
+	background-color: red;
 	display: block;
 }
 
-.test ul { 
+nav ul { 
 	clear: both;
 	position: relative;
 	display: inline-table;
@@ -49,47 +50,46 @@ a:active {
 	padding-right: 50%;
 }
 
-.test ul li {
+nav ul li {
+
 	width: 100px;
 	border: 1px solid red;
 	float: right;
 	direction: ltr;
 }
 	
-.test ul ul {
+nav ul ul {
 	z-index: 1000;
 	position: absolute; 
 	top: 0;
 	left: 100px;
 }
 
-.test ul ul li:hover {
+nav ul ul li:hover {
 	background: #4b545f;
 }
 
 #mainChatRoom {
 	float: left;
-	margin-left: 50px;
-	border: 2px solid blue;
-	width: 500px;
-	height: 400px;
+	margin-left: ;
+	border: 1px solid #8c8c8c;
+	width: 748px;
+	height: 500px;
 	overflow: auto;
 	-webkit-overflow: auto;
+	overflow-x:hidden;
+	border-bottom-right-radius: 0.8%;
+	border-bottom-left-radius: 0.8%;  
 }
 
-#mainChatRoom ul {
-	list-style: none;
-	padding-left: 0.2cm;
+#leaveButton {
+	background: url('http://www.videomaniakc.com/tl_files/content/warning/icon-exit.png');
+	background-size: cover;
+	text-decoration: none;
+	float: right;
 }
 
-
-
-
-#foo {
-	float:left;
-	border: 2px solid orange;
+#chatInput {
+	border: 2px solid red;
 }
 
-#smuu {
-	border: 2px solid yellow;
-}
