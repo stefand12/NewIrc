@@ -127,7 +127,7 @@ io.sockets.on('connection', function (socket) {
 			var messageObj = {
 				nick : socket.username,
 				timestamp : (d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()),
-				message : data.msg.substring(1, 200)
+				message : data.msg.substring(0, 200)
 			};
 			rooms[data.roomName].addMessage(messageObj);
 			io.sockets.emit('updatechat', data.roomName, rooms[data.roomName].messageHistory);

@@ -1,5 +1,6 @@
 <div ng-controller="RoomController">
 	<h3>Room Window</h3>
+	<input class="login-button btn-block" type="submit" ng-click="logoff()" value="LogOff »">
 	<div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
 	    {{errorMessage}}
 	</div>
@@ -24,7 +25,7 @@
 								<span class="media">
 		                            <div class="media-body" >
 		                                <small class="text-muted">{{message.nick}} | {{message.timestamp}} : </small>
-		                                {{message.message}}
+		                                {{message.message}} {{message.servermessage}}
 		                            </div>
 	                        	</span>
 							</div>
