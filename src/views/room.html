@@ -77,19 +77,18 @@
 						</div>
 					</div>
 	            </div>
-	            <div class="btn-group-vertical" role="group" aria-label="...">
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button" id="Unban" data-toggle="dropdown" aria-expanded="false" >
-								    no banning
-								    <span class="caret"></span>
-							</button>
-							<div ng-repeat="x in banned" >
-							<div class="dropdown-menu" role="menu" aria-labelledby="Unban">
-								<p>{{x}}</p>
-							</div>
-						</div>
-						</div>
-					</div>  
+	            <div class="dropdown">
+        			<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()">Unban
+       				<span class="caret"></span></button>
+		        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		          <li role="presentation">
+		          	<div ng-repeat="user in banned">
+						<span role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="unBan(user)" value="{{user}}" /></span>
+		          	</div>
+		          </li>
+		          
+		        </ul>
+      </div>
 	        </div>
 		</div>
 	</div>

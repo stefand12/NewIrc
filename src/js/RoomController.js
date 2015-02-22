@@ -227,12 +227,14 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		});	
 	};
 
-	$scope.unban = function (user) {
+	$scope.unBan = function (user) {
+		console.log("unban called");
+		console.log(user);
 		var tmpObj = {
 			user: user,
 			room: $scope.currentRoom
 		};
-		socket.emit('ban', tmpObj, function (success) {
+		socket.emit('unban', tmpObj, function (success) {
 			if(!success){
 				console.log("You're not an (/'.')/ you can't unban peepz");
 			}
