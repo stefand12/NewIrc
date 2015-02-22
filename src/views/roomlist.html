@@ -1,24 +1,47 @@
-<h3>Hi {{currentUser}} - Active chat rooms</h3>
+<div ng-controller="RoomListController">
+    <h3>Welcome {{currentUser}}</h3>
+        <div class="col-md-4"> </div>
+        <div id="availableRooms" class="col-md-3" >
+            
+            <div >
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Available Chatrooms
+                    </div>  
+                    <div id="roomList" class="col-md-12">     
+                        <ul ng-repeat="room in rooms" class="col-md-12">
+                                <li class="col-md-12"><a href="#/room/{{currentUser}}/{{room}}/''">{{room}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="col-md-5">
+ <div class="form-group">
+    <div class="col-md-5"> 
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label for="roomName" class="control-label">Create new room</label>
+        </div>
+            <form ng-submit="createRoom()">
+                
+                    <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
 
-<div class="test">
-	<ul ng-repeat="room in rooms">
-          <li><a href="#/room/{{currentUser}}/{{room}}/''">{{room}}</a></li>
-      </ul>
+                    <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
+                
+                
+                <div class="col-md-6"> 
+                <button type="submit" class="btn btn-primary" ng-click="createRoom(password)">Create</button>
+            </div>
+        </div>
+            </form>
+             </div>
+        </div>
+        <div class="alert alert-danger" ng-cloak ng-show="errorMessage != ''">
+    {{errorMessage}}
+    </div>
 </div>
-<div class="form-group">
-    <label for="roomName" class="control-label">Room-name</label>
-    <form ng-submit="createRoom()">
-	    <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" />
-
-        <input type="password" class="form-control" id="password" name="password" ng-model="password" />
-
-        <button type="submit" class="btn btn-primary" ng-click="createRoom(password)">Create new room</button>
-    </form>
 </div>
-<div class="alert alert-danger" ng-cloak ng-show="errorMessage != ''">
-	{{errorMessage}}
-</div>
-
 <!-- kóði til að checka á arrays ekki eiða strax!
 <div ng-if="Array.isArray(rooms)">
       <ul ng-repeat="room in rooms">
@@ -29,3 +52,4 @@
           <li><a href="#/room/{{currentUser}}/{{rooms}}">{{rooms}}</a></li>
 </ul-some-stuff> 
 -->
+           
