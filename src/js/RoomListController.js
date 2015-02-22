@@ -19,6 +19,7 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 
 
 		$scope.createRoom = function (password) {
+			console.log(password);
 			var newRoom = {
 				room: $scope.roomName,
 				pass: password
@@ -37,5 +38,11 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 				});
 			}
 		};
+
+	$scope.logoff = function() {
+		console.log($routeParams.user + " disconnected");
+		socket.emit('disc', $routeParams.user);
+		$location.path('/login/');
+	}
 	//$scope.rooms = ['Room 1','Room 2','Room 3','Room 4','Room 5'];
 });
