@@ -111,6 +111,7 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	$scope.bubbar = [];
 	$scope.messages = []; 
 	$scope.glued = true;
+	$scope.banned = [];
 	/*
 	* .nick
 	* .timestamp
@@ -171,6 +172,23 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 			console.log(user + " " + tag + "ed " + roomName);
 		}
 		/* skoða hvað við viljum gera við þetta message */
+	});
+
+	socket.on('bannedlist', function (userName ,channel, bannedlist) {
+		console.log("caught bannedlist");
+		if(channel === $scope.currentRoom) {
+			console.log("currentRoom");
+			console.log($scope.currentUser);
+			if(userName === $scope.currentUser) {
+				console.log("user is op");
+				$scope.banned = _.toArray(bannedlist);
+				
+			} else {
+				console.log("user isn't op");
+			}
+		} else {
+			console.log("not Mine");
+		}
 	});
 
 	$scope.doOp = function (looser) {
@@ -248,6 +266,16 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		socket.emit('settopic', tmpObj, function (success) {
 			if(!success) {
 				console.log("Really you non (/'.')/ you can't set topiczes !");
+			}
+		});
+	};
+
+	$scope.getBanned = function () {
+		socket.emit('getBanned', $scope.currentRoom, function (success) {
+			if(!success) {
+				console.log("Really you non (/'.')/ you can't know who's banned !");
+			} else {
+				console.log("listen for bannedList");
 			}
 		});
 	};

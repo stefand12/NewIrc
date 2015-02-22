@@ -271,6 +271,24 @@ io.sockets.on('connection', function (socket) {
 		fn(false);
 	});
 
+	/*
+		Bætti við svo við gætum sótt bann listann fyrir hverja rás 
+		skjótt.
+	*/
+	socket.on('getBanned', function (channel, fn) {
+		if(rooms[channel].ops[socket.username] !== undefined) {
+			var bannedlist = [];
+
+			for(var banned in rooms[channel].banned) {
+				bannedlist.push(banned);
+			}
+
+			socket.emit('bannedlist', socket.username, channel, bannedlist);
+			fn(true);
+		}
+		fn(false);
+	});
+
 	//Returns a list of all avaliable rooms.
 	socket.on('rooms', function() {
 		socket.emit('roomlist', rooms);
@@ -287,6 +305,7 @@ io.sockets.on('connection', function (socket) {
 		}
 		socket.emit('userlist', userlist);
 	});
+
 
 	//Sets topic for room.
 	socket.on('settopic', function (topicObj, fn) {
