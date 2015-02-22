@@ -108,15 +108,43 @@ nav ul ul li:hover {
 	border-bottom-left-radius: 0.8%;  
 }
 
+
+
+#roomList {
+	height: 400px;
+	border:1px solid #CCCCCC;
+	font-family:Georgia, Times, serif;
+	font-size:18px; 
+	overflow: auto;
+	-webkit-overflow: auto;
+}
+
+#roomList ul { 
+	list-style: none; 
+	}
+
+#roomList ul li a { 
+	display:block; 
+	text-decoration:none; 
+	color:#000000; 
+	background-color:#ffffff; 
+	line-height:30px;
+	border-bottom-style:solid; 
+	border-bottom-width:2px; 
+	border-bottom-color:#CCCCCC; 
+	padding-left:75px;  
+}
+#roomList ul li a:hover { 
+	color:#ffffff; 
+	background-color: #337AB7; 
+}
+
+
 #leaveButton {
 	background: url('http://www.videomaniakc.com/tl_files/content/warning/icon-exit.png');
 	background-size: cover;
 	text-decoration: none;
 	float: right;
-}
-
-#chatInput {
-	border: 2px solid red;
 }
 
 h1{
@@ -143,4 +171,10 @@ h1{
 
   /* IE 10 */
 	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
-
+}
+#c1{
+	height: 450px;
+}
+#c3{
+	height: 450px;
+}

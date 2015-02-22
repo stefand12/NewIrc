@@ -11,26 +11,24 @@
 						<form>
 							<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
 							<input type="submit" class="btn btn-primary" ng-click="changeTopic()" value="change"/>
+							<input type="button" id="leaveButton" ng-click="leaveRoom()" value="          ">
 						</form>
-						<input type="button" id="leaveButton" ng-click="leaveRoom()" value="      ">
+						
 					</div>
 					<div id="mainChatRoom" scroll-glue>
 						<div class="panel-body">
-							<ul ng-repeat="message in messages" id="printMessage" autoscroll="" class="media-list"  >
-								<li class="media">
+							<div ng-repeat="message in messages" id="printMessage" autoscroll="" class="media-list"  >
+								<span class="media">
 		                            <div class="media-body" >
 		                                <div class="media">
 		                                    <div class="media-body" >
+		                                        <small class="text-muted">{{message.nick}} | {{message.timestamp}}</small>
 		                                        {{message.message}}
-		                                        <br />
-		                                       <small class="text-muted">{{message.nick}} | {{message.timestamp}}</small>
-		                                        <hr />
 		                                    </div>
 		                                </div>
-
 		                            </div>
-	                        	</li>
-							</ul>
+	                        	</span>
+							</div>
 						</div>
 					</div>
 				</div>

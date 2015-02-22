@@ -121,13 +121,13 @@ io.sockets.on('connection', function (socket) {
 		if(userAllowed) {
 			//Update the message history for the room that the user sent the message to.
 			/**************************************/
-			/* Timestamp configured for our needs */
+			/*   Timestamp lagað að okkar óskum   */
 			/**************************************/
 			var d = new Date();
 			var messageObj = {
 				nick : socket.username,
 				timestamp : (d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()),
-				message : data.msg.substring(0, 200)
+				message : data.msg.substring(1, 200)
 			};
 			rooms[data.roomName].addMessage(messageObj);
 			io.sockets.emit('updatechat', data.roomName, rooms[data.roomName].messageHistory);
