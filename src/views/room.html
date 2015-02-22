@@ -12,8 +12,9 @@
 			<div class="col-md-8">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						{{currentRoom}}
 						<form>
-							<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
+							<input type="text" class="form-control" placeholder="No topic has been set for {{currentRoom}}" id="newTopic" name="newTopic" ng-model="newTopic" />
 							<input type="submit" class="btn btn-primary" ng-click="changeTopic()" value="change"/>
 							<input type="button" id="leaveButton" ng-click="leaveRoom()" value="          ">
 						</form>
@@ -23,7 +24,7 @@
 							<div ng-repeat="message in messages" id="printMessage" autoscroll="" class="media-list"  >
 								<span class="media">
 		                            <div class="media-body" >
-		                                <small class="text-muted">{{message.nick}} | {{message.timestamp}} : </small>
+		                                <small class="text-muted">{{message.nick}} | {{message.timestamp}} :</small>
 		                                {{message.message}}
 		                            </div>
 	                        	</span>
