@@ -1,6 +1,6 @@
 <div ng-controller="RoomListController">
-    <h3>Hi {{currentUser}} - Active chat rooms</h3>
-        <div class="col-md-4" id="c1"> </div>
+    <h3>Welcome {{currentUser}}</h3>
+        <div class="col-md-4"> </div>
         <div id="availableRooms" class="col-md-3" >
             
             <div >
@@ -16,7 +16,7 @@
                 </div>
             </div>  
         </div>
-        <div class="col-md-5" id="c3">
+        <div class="col-md-5">
  <div class="form-group">
     <div class="col-md-5"> 
     <div class="panel panel-primary">
@@ -25,9 +25,9 @@
         </div>
             <form ng-submit="createRoom()">
                 
-                    <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" />
+                    <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
 
-                    <input type="password" class="form-control" id="password" name="password"    ng-model="password" />
+                    <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
                 
                 
                 <div class="col-md-6"> 

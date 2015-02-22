@@ -35,65 +35,6 @@
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     }
-    
-a:link {
-	color: #000000;
-	text-decoration: none;
-}
-
-a:visited {
-	text-decoration: none;
-}
-
-a:hover {
-	color: #767676;
-	text-decoration: bold;
-}
-
-a:active {
-	text-decoration: none;
-}
-
-nav {
-	height: 500px;
-}
-
-nav ul ul {
-	display: none;
-}
-
-nav ul li:hover   {
-	background-color: red;
-	display: block;
-}
-
-nav ul { 
-	clear: both;
-	position: relative;
-	display: inline-table;
-	list-style: none;
-	padding-left: 0px;
-	padding-right: 50%;
-}
-
-nav ul li {
-
-	width: 100px;
-	border: 1px solid red;
-	float: right;
-	direction: ltr;
-}
-	
-nav ul ul {
-	z-index: 1000;
-	position: absolute; 
-	top: 0;
-	left: 100px;
-}
-
-nav ul ul li:hover {
-	background: #4b545f;
-}
 
 #mainChatRoom {
 	float: left;
@@ -107,8 +48,6 @@ nav ul ul li:hover {
 	border-bottom-right-radius: 0.8%;
 	border-bottom-left-radius: 0.8%;  
 }
-
-
 
 #roomList {
 	height: 400px;
@@ -138,7 +77,6 @@ nav ul ul li:hover {
 	color:#ffffff; 
 	background-color: #337AB7; 
 }
-
 
 #leaveButton {
 	background: url('http://www.videomaniakc.com/tl_files/content/warning/icon-exit.png');
@@ -172,9 +110,4 @@ h1{
   /* IE 10 */
 	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
 }
-#c1{
-	height: 450px;
-}
-#c3{
-	height: 450px;
-}
+

@@ -44,18 +44,17 @@
 								 	<button class="btn btn-default dropdown-toggle" type="button" id="{{op}}" data-toggle="dropdown" aria-expanded="false">
 								    (/'.')/ {{op}}
 								    <span class="caret"></span>
-								  </button>
-								  <ul class="dropdown-menu" role="menu" aria-labelledby="{{op}}">
-								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Send Message" /></li>
-								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(op)" value="Kick" /></li>
-								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(op)" value="BAN" /></li>
-								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Unban" /></li>
-								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(op)" value="Op" /></li>
-								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeop(op)" value="DeOp" /></li>
-								  </ul>
+								  	</button>
+								  	<ul class="dropdown-menu" role="menu" aria-labelledby="{{op}}">
+									    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Send Message" /></li>
+									    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(op)" value="Kick" /></li>
+									    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(op)" value="BAN" /></li>
+									    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Unban" /></li>
+									    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(op)" value="Op" /></li>
+									    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeop(op)" value="DeOp" /></li>
+								  	</ul>
 								</div>
-							
-						</div>
+							</div>
 						<div ng-repeat="user in currentUsers">
 							
 								<div class="dropdown">
