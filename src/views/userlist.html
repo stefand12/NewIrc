@@ -1,24 +1,15 @@
-<ul>
-      <li><a href="#/home">Home</a></li>
-      <li><a href="#/about">About</a></li>
-      <li><a href="#/room">Room</a></li>
-      <li><a href="#/login">Login</a></li>
-      <li><a href="#/rooms">Rooms</a></li>
-      <li><a href="#/users">Users</a></li>
-      <li><a href="#/chat">Chat</a></li>
-    </ul>
-<h3>Hi {{user}} - Active chat users</h3>
+<div ng-controller="UserListController">
+  <h3>Hi {{user}} - Active chat users</h3>
 
-<nav ng-repeat="user in users" >
-    <ul>
-        <li>
-            <div> {{user}} </div>
-            <ul>
-                <li> <div>Send message</div> </li>
-                <li> <div>kick</div> </li>
-                <li> <div>ban / unban</div> </li>
-                <li> <div>op / deop</div> </li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+  <div ng-repeat="user in users">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
+        {{user}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
+        <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" /></li>
+      </ul>
+    </div>
+  </div>
+</div>

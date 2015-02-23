@@ -13,7 +13,27 @@
 	      			<ul class="nav navbar-nav" >
 				        <li> <div class="mouse" ng-click="home()"> Home </div></li>
 				        <li> <a ng-href="#/about"> About </a> </li>
-				        <li> <a ng-href="#"> Private Messages </a> </li>
+				        <li> 
+				        	<div class="dropdown">
+        						<div class="mouse" id="menuHome" data-toggle="dropdown" ng-click="toggler()">Private Messages
+       								<span class="caret"></span>
+       							</div>
+		        				<ul class="dropdown-menu" role="menu" aria-labelledby="menuHome">
+		          					<li role="presentation">
+		          						<div ng-repeat="msg in privateMessages">
+											<span role="presentation">
+												<div>{{msg.from}} : {{msg.msg}}</div>
+												<input type="submit" role="menuitem" tabindex="-1" ng-click="reply(msg.from)" value="reply" />
+											</span>
+										</div>
+		     						</li>
+								</ul>
+      						</div>
+      						<div ng-switch on="newMessage">
+   								<span ng-switch-when="true">!</span>
+   								<span ng-switch-default>.</span>
+ 							</div>
+				        </li>
 				        <li><a ng-href="/login" ng-click="logoff()" value="LogOff »"> Log off</a></li>
 	      			</ul>
 	      		</div>

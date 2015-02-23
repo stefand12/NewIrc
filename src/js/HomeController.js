@@ -1,6 +1,6 @@
 /*jslint browser:true */
 angular.module("NewIrc").controller("HomeController", 
-	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
+	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage) {
 
 	$scope.privateMessages = [];
 	
@@ -19,13 +19,16 @@ angular.module("NewIrc").controller("HomeController",
 
 	socket.on('recv_privatemsg', function (userName, message) {
 		var privateMsg = {
-			//from: userName,
+			from: userName,
 			msg: message
 		};
-		$scope.alerts.push(privateMsg);
 		$scope.privateMessages.push(privateMsg);
 		$scope.newMessage = true;
 	});
+
+	$scope.toggler = function () {
+		$scope.newMessage = false;
+	};
 
 	socket.on('servermessage', function (tag, roomName, user) {
 		var alert = {
@@ -151,8 +154,6 @@ angular.module("NewIrc").controller("HomeController",
 		}
 	});
 
-
-
 	sharedVariables.observeUser().then(null, null, function (user) {
 		console.log("scope.currentUser = " + user);
     	$scope.currentUser = sharedVariables.getUser();
@@ -174,5 +175,10 @@ angular.module("NewIrc").controller("HomeController",
 	$scope.home = function () {
 		console.location("home pushed");
 		$location.path('/rooms/' + $routeParams.user);
+	};
+
+	$scope.reply = function (user) {
+		console.log(user);
+		privateMessage.send(user, socket);
 	};
 });
