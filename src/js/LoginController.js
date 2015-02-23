@@ -2,7 +2,7 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 	$scope.errorMessage = '';
 	$scope.nickname = '';
 //<input class="login-button btn-block" type="submit" ng-click="login()" value="Login »">
-	$scope.login = function() {			
+	$scope.login = function() {
 		if ($scope.nickname === '') {
 			$scope.errorMessage = 'Please choose a nick-name before continuing!';
 		} else {
@@ -15,7 +15,7 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 					$location.path('/rooms/' + $scope.nickname);
 				} else {
 					console.log("nei ekki hægt ");
-					$scope.errorMessage = 'This nick-name is already taken!';
+					$scope.errorMessage = 'This nick-name is unavailable!';
 				}
 			});			
 		}

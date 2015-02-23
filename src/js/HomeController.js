@@ -69,13 +69,89 @@ angular.module("NewIrc").controller("HomeController",
 		/* skoða hvað við viljum gera við þetta message */
 	});
 
-	socket.on('',function (){
-
+	socket.on('banned',function (roomName, user, byUser) {
+		var alert = {
+			type: "alert alert-danger",
+			msg: ""
+		};
+		if(user === $scope.currentUser) {
+			alert.msg = "You've been banned from " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+			if(roomName === $scope.currentRoom) {
+				$scope.currentRoom ="";
+				$location.path('/rooms/' + $scope.currentUser);
+			}
+		} else if($scope.currentRoom === roomName) {
+			alert.msg = user + " has been banned from " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		}
 	});
 
-	socket.on('', function (){
-
+	socket.on('unbanned', function (roomName, user, byUser) {
+		var alert = {
+			type: "alert alert-success",
+			msg: ""
+		};
+		if(user === $scope.currentUser) {
+			alert.msg = "You've been unbanned from " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		} else if($scope.currentRoom === roomName) {
+			alert.msg = user + " has been unbanned from " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		}
 	});
+
+	socket.on('opped', function (roomName, user, byUser) {
+		var alert = {
+			type: "alert alert-success",
+			msg: ""
+		};
+		if(user === $scope.currentUser) {
+			alert.msg = "You've been opped in " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		} else if($scope.currentRoom === roomName) {
+			alert.msg = user + " has been opped in " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		}
+	});
+
+	socket.on('deopped', function (roomName, user, byUser) {
+		var alert = {
+			type: "alert alert-warning",
+			msg: ""
+		};
+		if(user === $scope.currentUser) {
+			alert.msg = "You've been deopped in " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+			if(roomName === $scope.currentRoom) {
+				$scope.currentRoom ="";
+				$location.path('/rooms/' + $scope.currentUser);
+			}
+		} else if($scope.currentRoom === roomName) {
+			alert.msg = user + " has been deopped in " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		}
+	});
+
+	socket.on('kicked', function (roomName, user, byUser) {
+		var alert = {
+			type: "alert alert-danger",
+			msg: ""
+		};
+		if(user === $scope.currentUser) {
+			alert.msg = "You've been kicked from " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+			if(roomName === $scope.currentRoom) {
+				$scope.currentRoom ="";
+				$location.path('/rooms/' + $scope.currentUser);
+			}
+		} else if($scope.currentRoom === roomName) {
+			alert.msg = user + " has been kicked from " + roomName + " by " + byUser;
+			$scope.alerts.push(alert);
+		}
+	});
+
+
 
 	sharedVariables.observeUser().then(null, null, function (user) {
 		console.log("scope.currentUser = " + user);
