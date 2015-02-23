@@ -26,5 +26,4 @@ angular.module("NewIrc").controller("HomeController", function ($scope, $locatio
 		sharedVariables.setUser('');
 		$location.path('/login/');
 	};
-
 });

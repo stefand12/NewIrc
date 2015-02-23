@@ -87,5 +87,19 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 	this.getArray = function () {
 		return this.tmpArray;
 	};
+})
+.service('privateMessage', function () {
 
+	this.send = function (user, socket) {
+		var message = prompt("type in message");
+		var msgObj = {
+			nick: user,
+			message: message
+		};
+		socket.emit('privatemsg', msgObj, function (success) {
+			if(!success) {
+				console.log("msg failed");
+			}
+		});
+	}
 });
