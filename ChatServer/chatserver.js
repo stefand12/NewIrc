@@ -18,7 +18,7 @@ rooms.lobby.setTopic("Welcome to the lobby!");
 io.sockets.on('connection', function (socket) {
 
 	//This gets performed when a user joins the server.
-	socket.on('adduser', function(username, fn){
+	socket.on('adduser', function (username, fn) {
 
 		//Check if username is avaliable.
 			/*
@@ -34,6 +34,7 @@ io.sockets.on('connection', function (socket) {
 
 			//Store user object in global user roster.
 			users[username] = { username: socket.username, channels: {}, socket: this };
+			
 			fn(true); // Callback, user name was available
 		}
 		else {
@@ -66,15 +67,14 @@ io.sockets.on('connection', function (socket) {
 			//Update topic
 			socket.emit('updatetopic', room, rooms[room].topic, socket.username);
 			io.sockets.emit('servermessage', "join", room, socket.username);
-		}
-		else {
+			io.sockets.emit('roomlist', rooms);
+		} else {
 
 			//If the room isn't locked we set accepted to true.
 			if(rooms[room].locked === false) {
 				accepted = true;
-			}
+			} else {
 			//Check if user submits the correct password
-			else {
 				//If it doesnt match we set accepted to false.
 				if(pass != rooms[room].password) {
 					accepted = false;
@@ -158,8 +158,9 @@ io.sockets.on('connection', function (socket) {
 		io.sockets.emit('servermessage', "part", room, socket.username);
 	});
 
+	/* breyting vegna blocked service heitis */
 	// when the user disconnects.. perform this
-	socket.on('disc', function(){
+	socket.on('disc', function() {
 		if(socket.username) {
 			//If the socket doesn't have a username the client joined and parted without
 			//chosing a username, so we just close the socket without any cleanup.
@@ -296,12 +297,12 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	//Returns a list of all avaliable rooms.
-	socket.on('rooms', function() {
+	socket.on('rooms', function () {
 		socket.emit('roomlist', rooms);
 	});
 
 	//Returns a list of all connected users.
-	socket.on('users', function() {
+	socket.on('users', function () {
 		var userlist = [];
 
 		//We need to construct the list since the users in the global user roster have a reference to socket, which has a reference
@@ -378,4 +379,4 @@ function Room() {
 		this.password = "";
 		this.locked = false;
 	};
-}
+};
