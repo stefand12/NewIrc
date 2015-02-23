@@ -124,13 +124,10 @@ angular.module("NewIrc").controller("RoomController",
 	};
 	
 	socket.emit('joinroom', test, function (success, reason) {
-		console.log("joinroom emitted with room pass: " + $routeParams.pass);
-		console.log("joinroom emitted with room name: " + $routeParams.room);
 	if (!success) {
 		if(reason === "wrong password") {
 			password_prompt("Please enter your password:", "Submit", function (passWrd) {
 				$rootScope.$apply(function () {
-
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
 				});
 			});
@@ -267,14 +264,81 @@ angular.module("NewIrc").controller("RoomController",
 			topic: $scope.newTopic,
 			room: $scope.currentRoom
 		};
-		console.log("topic topic: " + tmpObj.topic);
-		console.log("topic room: " + tmpObj.room);
 		socket.emit('settopic', tmpObj, function (success) {
 			if(!success) {
 				console.log("Really you non (/'.')/ you can't set topiczes !");
 			}
 		});
 	};
+
+
+	$scope.changePassword = function () {
+
+		password_prompt("Please enter your password:", "Submit", function (newPass) {
+
+				console.log("newPass = " + newPass);
+				
+				var tmpObj = {
+					password: newPass,
+					room: $scope.currentRoom
+				};
+				if (newPass === undefined || newPass === '') {
+					tmpObj = {
+						password: '',
+						room: $scope.currentRoom
+					};
+					socket.emit('removepassword' , tmpObj, function (success) {
+						if(!success){
+							console.log("Really you non (/'.')/ you can't remove password !")
+						} else { 
+							$scope.pass = newPass;
+							console.log("(/'.')/ you removed password !");
+						}
+					});
+				} else {
+					socket.emit('setpassword', tmpObj, function (success) {
+						if(!success) {
+							console.log("Really you non (/'.')/ you can't set password !");
+						} else {
+							$scope.pass = newPass;
+							console.log("(/'.')/ you changed password !");
+						}
+					});
+				}
+			
+		});
+	};
+
+	/*$scope.changePassword = function () {
+		
+		var tmpObj = {
+			password: $scope.newPassword,
+			room: $scope.currentRoom
+		};
+		if ($scope.newPassword === undefined || $scope.newPassword === '') {
+			tmpObj = {
+				password: '',
+				room: $scope.currentRoom
+			};
+			socket.emit('removepassword' , tmpObj, function (success) {
+				if(!success){
+					console.log("Really you non (/'.')/ you can't remove password !")
+				} else { 
+					$scope.pass = $scope.newPassword;
+					console.log("(/'.')/ you removed password !");
+				}
+			});
+		} else {
+			socket.emit('setpassword', tmpObj, function (success) {
+				if(!success) {
+					console.log("Really you non (/'.')/ you can't set password !");
+				} else {
+					$scope.pass = $scope.newPassword;
+					console.log("(/'.')/ you changed password !");
+				}
+			});
+		}
+	};*/
 
 	$scope.getBanned = function () {
 		socket.emit('getBanned', $scope.currentRoom, function (success) {
