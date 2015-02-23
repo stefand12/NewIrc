@@ -8,6 +8,8 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 		} else {
 			socket.emit('adduser', $scope.nickname, function (available) {
 				if (available) {
+					console.log("setting user name lgC");
+
 					sharedVariables.setUser($scope.nickname);
 					console.log("logged in as " + $scope.nickname);
 					$location.path('/rooms/' + $scope.nickname);

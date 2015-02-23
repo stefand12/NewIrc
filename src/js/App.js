@@ -1,3 +1,5 @@
+/*jslint browser:true */
+
 angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($routeProvider) {
 	$routeProvider
 	.when("/home", {
@@ -41,6 +43,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 	var self = this, 
 		defer = $q.defer();
 
+	/* */
 	this.user = '';
 
 	this.observeUser = function () {
@@ -50,7 +53,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 	this.setUser = function (user) {
 		console.log("Sv setting user " + user);
 		self.user = user;
-		defer.notify(self.user);
+		defer.notify(self);
 		
 	};
 
@@ -58,6 +61,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 		return this.user;
 	};
 
+	/* */
 	this.observeRoom = function () {
 		return defer.promise;
 	};
@@ -66,17 +70,14 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 
 	this.setRoom = function (room) {
 		self.room = room;
-		defer.notify(self.room);
+		defer.notify(self);
 	};
 
 	this.getRoom = function () {
 		return this.room;
 	};
 
-	this.observeRoom = function () {
-		return defer.promise;
-	};
-
+	/* */
 	this.observeTmpArray = function () {
 		return defer.promise;
 	};
@@ -85,7 +86,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 
 	this.setArray = function (objects) {
 		self.tmpArray.push(objects);
-		defer.notify(self.tmpArray);
+		defer.notify(self);
 	};
 
 	this.getArray = function () {
@@ -95,7 +96,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 .service('privateMessage', function () {
 
 	this.send = function (user, socket) {
-		var message = prompt("type in message");
+		var message = window.prompt("type in message");
 		var msgObj = {
 			nick: user,
 			message: message
@@ -105,5 +106,5 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 				console.log("msg failed");
 			}
 		});
-	}
+	};
 });

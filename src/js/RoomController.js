@@ -135,7 +135,7 @@ angular.module("NewIrc").controller("RoomController",
 				});
 			});
 		}
-			$scope.errorMessage = reason;
+			$location.path('/rooms/' + $scope.currentUser);
 		}
 	});
 
@@ -257,6 +257,7 @@ angular.module("NewIrc").controller("RoomController",
 	};
 
 	$scope.leaveRoom = function () {
+		sharedVariables.setRoom('');
 		socket.emit("partroom", $scope.currentRoom);
 		$location.path('/rooms/' + $scope.currentUser);
 	};
