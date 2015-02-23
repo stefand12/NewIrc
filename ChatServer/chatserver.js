@@ -261,11 +261,17 @@ io.sockets.on('connection', function (socket) {
 		fn(false);
 	});
 
+	/*bætti við unbanned emit action*/
+
 	//Handles unbanning the user.
 	socket.on('unban', function (unbanObj, fn) {
 		if(rooms[unbanObj.room].ops[socket.username] !== undefined) {
 			//Remove the user from the room ban list.
 			delete rooms[unbanObj.room].banned[unbanObj.user];
+			
+			/*þótti vanta message ef maður er unbanned */
+			io.sockets.emit('unbanned', unbanObj.room, unbanObj.user, socket.username);
+
 			fn(true);
 		}
 		fn(false);

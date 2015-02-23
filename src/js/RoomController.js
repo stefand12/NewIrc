@@ -135,7 +135,7 @@ angular.module("NewIrc").controller("RoomController",
 				});
 			});
 		}
-			$scope.errorMessage = reason;
+			$location.path('/rooms/' + $scope.currentUser);
 		}
 	});
 
