@@ -284,7 +284,7 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		});
 	};
 
-	$scope.logoff = function() {
+/*	$scope.logoff = function() {
 		console.log($routeParams.user + " disconnected " + $routeParams.room);
 		socket.emit('disc', $routeParams.user);
 		$location.path('/login/');
