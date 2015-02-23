@@ -1,6 +1,3 @@
-
-	<h3>Room Window</h3>
-
 	<div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
 	    {{errorMessage}}
 	</div>
@@ -8,7 +5,7 @@
 		<div>{{user}}</div>
 	</div>
 	<div class="container">
-		<div class="row " style="padding-top:40px;">
+		<div class="row " style="padding-top:30px;">
 			<div class="col-md-8">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
@@ -38,6 +35,7 @@
 	                <div class="panel-heading">
 	                   ONLINE USERS
 	                </div>
+	                <div id="online-users">
 					  	<div class="btn-group-vertical" role="group" aria-label="...">            
 							<div ng-repeat="op in bubbar">
 								<div class="dropdown" >
@@ -70,6 +68,7 @@
 							</div>
 						</div>
 					</div>
+				</div>
 	            </div>
 	            	<div class="dropdown">
         				<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()">Unban

@@ -48,6 +48,17 @@
 	border-bottom-left-radius: 0.8%;  
 }
 
+#online-users{
+	border: 1px solid #8c8c8c;
+	width: 358px;
+	height: 367px;
+	overflow: auto;
+	-webkit-overflow: auto;
+	overflow-x:hidden;
+	border-bottom-right-radius: 0.8%;
+	border-bottom-left-radius: 0.8%;  
+}
+
 #roomList {
 	height: 400px;
 	border:1px solid #CCCCCC;
@@ -84,29 +95,6 @@
 	float: right;
 }
 
-h1{
-	color: white;
-}
-.page-header {
-	margin-top: -20px;
-	padding-top: 20px;
-	padding-bottom: 10px;
-	text-align: center;
-	background-color: #2F2727;
-
-  /* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
-
-  /* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* IE 10 */
-	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
-}
-
 .panel-heading{
 	text-align: center;
 	background-color: #2F2727;
@@ -124,6 +112,7 @@ h1{
 	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
 
 }
+
 
 .login-button{
 	padding-bottom: 5px;
@@ -154,4 +143,10 @@ h1{
 .mouse:hover {
 	cursor: pointer;
 	color: black;
+}
+
+.navbar-brand{
+	font-size: 2em;
+	padding-left: 50px;
+	padding-right: 50px;
 }
