@@ -22,11 +22,18 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 
 
 		$scope.createRoom = function (password) {
+			var psWd = '';
 			if($scope.roomName === '') {
 				$scope.errorMessage = "Choose a name for your channel";
 			} else {
-				console.log("joining room: " + $scope.roomName);
-				$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName +'/'+ password);
+				if($scope.password === undefined) {
+					console.log("psWd undefined");
+					$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName );
+				}
+				else {
+					console.log("psWd else " + psWd);
+					$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName +'/'+ password);
+				}
 			}
 		};
 });

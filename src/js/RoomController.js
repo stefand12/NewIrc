@@ -129,6 +129,7 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		if(reason === "wrong password") {
 			password_prompt("Please enter your password:", "Submit", function (passWrd) {
 				$rootScope.$apply(function () {
+
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
 				});
 			});
