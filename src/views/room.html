@@ -1,17 +1,32 @@
 	<div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
 	    {{errorMessage}}
 	</div>
+	<div ng-repeat="user in banned">
+		<div>{{user}}</div>
+	</div>
 	<div class="container">
 		<div class="row " style="padding-top:30px;">
 			<div class="col-md-8">
 				<div class="panel-1 panel-primary">
 					<div class="panel-heading">
 						{{currentRoom}}
-						<form>
 							<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
-							<input type="button" class="btn btn-primary" ng-click="changeTopic()" value="change"/>
+							<span class="btn-group">
+							<input type="button" class="btn btn-primary" ng-click="changeTopic()" value="Change Topic"/>
+							<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()">Unban
+       						<span class="caret"></span>
+       					</button>
+		        	<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		          		<li role="presentation">
+		          			<div ng-repeat="user in banned">
+		
+									<input type="submit" role="menuitem" tabindex="-1" ng-click="unBan(user)" value="{{user}}" />
+								
+							</div>
+		     			</li>
+					</ul>
 							<input type="button" id="leaveButton" ng-click="leaveRoom()" value="          ">
-						</form>	
+						</span>
 					</div>
 					<div id="mainChatRoom" scroll-glue>
 						<div class="panel-body">
@@ -67,20 +82,6 @@
 					</div>
 				</div>
 	            </div>
-	            	<div class="dropdown">
-        				<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()">Unban
-       						<span class="caret"></span>
-       					</button>
-		        	<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-		          		<li role="presentation">
-		          			<div ng-repeat="user in banned">
-								<span role="presentation">
-									<input type="submit" role="menuitem" tabindex="-1" ng-click="unBan(user)" value="{{user}}" />
-								</span>
-							</div>
-		     			</li>
-					</ul>
-      			</div>
 	        </div>
 		</div>
 	</div>
