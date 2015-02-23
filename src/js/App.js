@@ -97,6 +97,8 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 
 	this.send = function (user, socket) {
 		var message = window.prompt("type in message");
+		console.log("message to user" + user);
+		console.log(message);
 		var msgObj = {
 			nick: user,
 			message: message
@@ -108,3 +110,4 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 		});
 	};
 });
+
