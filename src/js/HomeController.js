@@ -22,6 +22,7 @@ angular.module("NewIrc").controller("HomeController", function ($scope, $locatio
 	$scope.logoff = function () {
 		console.log($routeParams.user + " disconnected");
 		socket.emit('disc', $routeParams.user);
+		sharedVariables.setUser('');
 		$location.path('/login/');
 	};
 });
