@@ -122,7 +122,9 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		room:$routeParams.room,
 		pass:$routeParams.pass /*mögulega skoða einhvert annað form*/
 	};
+	
 	socket.emit('joinroom', test, function (success, reason) {
+		console.log("joinroom emitted with room pass: " + $routeParams.pass);
 		console.log("joinroom emitted with room name: " + $routeParams.room);
 	if (!success) {
 		if(reason === "wrong password") {

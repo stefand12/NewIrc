@@ -19,22 +19,14 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 
 
 		$scope.createRoom = function (password) {
-			var newRoom = {
-				room: $scope.roomName,
-				pass: password
-			};
-
+			console.log(password);
+			var test = password;
+			console.log(test);
 			if($scope.roomName === '') {
 				$scope.errorMessage = "Choose a name for your channel";
 			} else {
-				socket.emit('joinroom', newRoom, function (succsess, reason) {
-					if(!succsess) {
-						$scope.errorMessage = reason;
-					} else {
-						console.log("Joined room: " + newRoom.room);
-						$location.path('/room/' + $scope.currentUser +'/'+ newRoom.room +'/'+ password);
-					}
-				});
+				console.log("joining room: " + $scope.roomName);
+				$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName +'/'+ test);
 			}
 		};
 	//$scope.rooms = ['Room 1','Room 2','Room 3','Room 4','Room 5'];

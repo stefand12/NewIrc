@@ -1,4 +1,4 @@
-<div ng-controller="RoomController">
+
 	<h3>Room Window</h3>
 	<div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
 	    {{errorMessage}}
@@ -14,9 +14,9 @@
 					<div class="panel-heading">
 						<form>
 							<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
-							<input type="submit" class="btn btn-primary" ng-click="changeTopic()" value="change"/>
+							<input type="button" class="btn btn-primary" ng-click="changeTopic()" value="change"/>
 							<input type="button" id="leaveButton" ng-click="leaveRoom()" value="          ">
-						</form>
+						</form>	
 					</div>
 					<div id="mainChatRoom" scroll-glue>
 						<div class="panel-body">
@@ -88,6 +88,6 @@
 	        </div>
 		</div>
 	</div>
-</div>
+
 <!-- cmnd line  -->
 <div ng-include="'src/views/chat.html'" id="Input"></div>
