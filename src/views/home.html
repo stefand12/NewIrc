@@ -1,4 +1,4 @@
-<div ng-controller="HomeController" id="t1">
+<div ng-controller="HomeController">
 
 	<nav class="navbar navbar-default" >
 	  	<div class="container-fluid">
@@ -19,4 +19,11 @@
 		    </div><!-- /.navbar-collapse -->
 	  	</div><!-- /.container-fluid -->
 	</nav>
+	<div ng-repeat="alert in alerts">
+		<div class="{{alert.type}}">
+			<button type="button" class="close" data-dismiss="alert" ng-click="(alert)">x</button>
+			<strong>Warning!</strong>
+				{{alert.msg}}
+		</div>
+	</div>
 </div>
