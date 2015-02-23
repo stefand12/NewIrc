@@ -1,49 +1,46 @@
-
-    <p><span style="margin-left:52px; font-size:1.5em; text-decoration:italic">Welcome: </span><span style="font-size:2em">{{currentUser}}</span></p>
-
-        <div class="col-md-4"> 
-            <div ng-include="'src/views/userlist.html'"></div>
+<div class="col-md-1"></div>
+<div class="col-md-3"> 
+    <div ng-include="'src/views/userlist.html'"></div>
+</div>
+<div id="availableRooms" class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Available Chatrooms
+        </div>  
+        <div id="roomList" class="col-md-12">     
+            <ul ng-repeat="room in rooms" class="col-md-12">
+                <li class="col-md-12">
+                    <a ng-href="#/room/{{currentUser}}/{{room}}/''">
+                        {{room}}
+                    </a>
+                </li>
+            </ul>
         </div>
+    </div>
+</div>  
 
-            <div id="availableRooms" class="col-md-3" >
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        Available Chatrooms
-                    </div>  
-                    <div id="roomList" class="col-md-12">     
-                        <ul ng-repeat="room in rooms" class="col-md-12">
-                                <li class="col-md-12">
-                                    <a ng-href="#/room/{{currentUser}}/{{room}}/''">
-                                        {{room}}
-                                    </a>
-                                </li>
-                        </ul>
-                    </div>
+<div class="col-md-3">
+    <div class="form-group">
+        <div class="col-md-12"> 
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <label for="roomName" class="control-label">Create new room</label>
                 </div>
-            </div>  
-        </div>
-        <div class="col-md-5">
-            <div class="form-group">
-                <div class="col-md-5"> 
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <label for="roomName" class="control-label">Create new room</label>
-                        </div>
-                        <div class="panel-body">
-                        <form ng-submit="createRoom()">
-                                <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
-                                <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
-                                <input class="create-button btn-block" type="submit" ng-click="createRoom(password)" value="Create »">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="alert alert-danger" ng-cloak ng-show="errorMessage != ''">
-                    {{errorMessage}}
+                <div class="panel-body">
+                    <form ng-submit="createRoom()">
+                        <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
+                        <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
+                        <input class="create-button btn-block" type="submit" ng-click="createRoom(password)" value="Create »">
+                    </form>
                 </div>
             </div>
         </div>
+        <div class="alert alert-danger" ng-cloak ng-show="errorMessage != ''">
+            {{errorMessage}}
+        </div>
     </div>
+</div>
+
 
 
 <!-- kóði til að checka á arrays ekki eiða strax!

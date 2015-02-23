@@ -1,15 +1,20 @@
-<div ng-controller="UserListController">
-  <h3>Hi {{user}} - Active chat users</h3>
+<div ng-controller="UserListController"></div>
 
-  <div ng-repeat="user in users">
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
-        {{user}}
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
-        <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" /></li>
-      </ul>
+<div id="availableRooms" class="col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+     Active chat users
     </div>
+      <div ng-repeat="user in users">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
+            {{user}}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
+            <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" /></li>
+          </ul>
+        </div>
+      </div>
   </div>
 </div>
