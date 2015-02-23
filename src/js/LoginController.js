@@ -1,7 +1,7 @@
 angular.module("NewIrc").controller("LoginController", function ($scope, $location, $rootScope, $routeParams, socket) {
 	$scope.errorMessage = '';
 	$scope.nickname = '';
-
+//<input class="login-button btn-block" type="submit" ng-click="login()" value="Login »">
 	$scope.login = function() {			
 		if ($scope.nickname === '') {
 			$scope.errorMessage = 'Please choose a nick-name before continuing!';
@@ -17,4 +17,6 @@ angular.module("NewIrc").controller("LoginController", function ($scope, $locati
 			});			
 		}
 	};
+//<input class="login-button btn-block" type="submit" ng-click="logoff()" value="LogOff »">
+
 });
