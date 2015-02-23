@@ -62,22 +62,23 @@
 							</div>							
 						</div>
 					</div>	
-				</div>
+				
 			
 
-				<div ng-repeat="user in currentUsers">
-					<div class="dropdown">
-					  	<button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
-					    {{user}}
-					    	<span class="caret"></span>
-					  	</button>
-					  	<ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
-						    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" /></li>
-						    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(user)" value="Kick" /></li>
-						    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(user)" value="BAN" /></li>
-						    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(user)" value="Op" /></li>
-						    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeop(user)" value="DeOp" /></li>
-					  	</ul>
+					<div ng-repeat="user in currentUsers">
+						<div class="dropdown">
+						  	<button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
+						    {{user}}
+						    	<span class="caret"></span>
+						  	</button>
+						  	<ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(user)" value="Kick" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(user)" value="BAN" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(user)" value="Op" /></li>
+							    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeop(user)" value="DeOp" /></li>
+						  	</ul>
+						</div>	
 					</div>
 				</div>
 			</div>
