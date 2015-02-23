@@ -57,7 +57,7 @@ p{
 
 #mainChatRoom {
 	float: left;
-	margin-left: ;
+	margin-left;
 	border: 1px solid #8c8c8c;
 	width: 748px;
 	height: 300px;
@@ -118,59 +118,18 @@ p{
 .panel-heading{
 	text-align: center;
 	background-color: #2F2727;
-
-	  /* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
-
-  /* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* IE 10 */
-	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
-
 }
 
 .login-button{
 	padding-bottom: 5px;
 	padding-top: 5px;
-	color: white;
 	text-align: center;
-	background-color: #2F2727;
-
-  /* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
-
-  /* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* IE 10 */
-	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
 }
 
 .create-button{
 	padding-bottom: 5px;
 	padding-top: 5px;
-	color: white;
 	text-align: center;
-	background-color: #2F2727;
-
-  /* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
-
-  /* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* IE 10 */
-	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
 }
 
 .mouse {
@@ -179,7 +138,6 @@ p{
     padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
-
 }
 .mouse:hover {
 	cursor: pointer;
@@ -192,19 +150,18 @@ p{
 	padding-right: 50px;
 }
 
-.btn-primary{
-	text-align: center;
-	background-color: #2F2727;
-
-  /* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
-
-  /* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
-
-  /* IE 10 */
-	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
+.open > .dropdown-toggle.btn-default{
+	color: #ffffff;
+	background-color: #337AB7;
 }
+
+.btn-group > .btn{
+	color: #ffffff;
+	background-color: #337AB7;
+	border-color: #204D74;
+}
+
+.btn-group > .btn:hover{
+	background-color: #286090;
+}
+
