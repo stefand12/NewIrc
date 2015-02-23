@@ -155,7 +155,6 @@ angular.module("NewIrc").controller("HomeController",
 	});
 
 	sharedVariables.observeUser().then(null, null, function (user) {
-		console.log("scope.currentUser = " + user);
     	$scope.currentUser = sharedVariables.getUser();
     	$scope.message = $scope.currentUser;
 	});
