@@ -12,6 +12,10 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 		templateUrl: "src/views/room.html",
 		controller: "RoomController"
 	})
+	.when("/room/:user/:room", {
+		templateUrl: "src/views/room.html",
+		controller: "RoomController"
+	})
 	.when("/login", {
 		templateUrl: "src/views/login.html",
 		controller: "LoginController"
