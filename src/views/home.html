@@ -1,7 +1,5 @@
-
 <div ng-controller="HomeController" id="t1">
-	<div>{{message}}</div>
-	<div>{{newMessage}}</div>
+
 	<nav class="navbar navbar-default" >
 	  	<div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -13,7 +11,7 @@
 		    	<div class="col-md-4"></div>
 	    		<div class="col-md-4">
 	      			<ul class="nav navbar-nav" >
-				        <li> <a  ng-click="home()"> Home </a></li>
+				        <li> <div class="mouse" ng-click="home()"> Home </div></li>
 				        <li> <a ng-href="#/about"> About </a> </li>
 				        <li> <a ng-href="#"> Private Messages </a> </li>
 				        <li><a ng-href="/login" ng-click="logoff()" value="LogOff »"> Log off</a></li>
@@ -24,4 +22,3 @@
 	  	</div><!-- /.container-fluid -->
 	</nav>
 </div>
-

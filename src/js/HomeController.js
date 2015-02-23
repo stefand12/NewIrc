@@ -27,4 +27,9 @@ angular.module("NewIrc").controller("HomeController", function ($scope, $locatio
 		$location.path('/login/');
 	};
 
+	$scope.home = function () {
+		console.location("home pushed");
+		$location.path('/rooms/' + $routeParams.user);
+	}
+
 });
