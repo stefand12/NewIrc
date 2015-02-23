@@ -1,6 +1,9 @@
 angular.module("NewIrc").controller("RoomListController", function ($scope, $location, $rootScope, $routeParams, socket) {
 	//TODO GET ROOM LIST
-	//
+	//	
+		if($routeParams.user === 'undefined') {
+			$location.path('#/login/');
+		}
 		$scope.currentUser = $routeParams.user;
 		socket.emit('rooms');
 		socket.on('roomlist', function (data) {
