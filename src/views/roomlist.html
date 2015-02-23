@@ -1,7 +1,7 @@
 
-    <h3>Welcome {{currentUser}}</h3>
+    <p><span style="margin-left:52px; font-size:1.5em; text-decoration:italic">Welcome: </span><span style="font-size:2em">{{currentUser}}</span></p>
 
-        <div class="col-md-4"> </div>
+        <div class="col-md-4"></div>
             <div id="availableRooms" class="col-md-3" >
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -26,13 +26,13 @@
                         <div class="panel-heading">
                             <label for="roomName" class="control-label">Create new room</label>
                         </div>
+                        <div class="panel-body">
                         <form ng-submit="createRoom()">
-                            <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
-                            <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
-                            <div class="col-md-6"> 
-                                <submit type="button" class="btn btn-primary" ng-click="createRoom(password)">Create</submit>
-                            </div>
-                        </form>
+                                <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
+                                <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
+                                <input class="create-button btn-block" type="submit" ng-click="createRoom(password)" value="Create »">
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="alert alert-danger" ng-cloak ng-show="errorMessage != ''">
