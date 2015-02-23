@@ -32,43 +32,60 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 		redirectTo: "/login"
 	});
 })
-.service("sharedVariables", function () {
-	var userInfo = '';
+.service('sharedVariables', function ($q) {
+
+	var self = this, 
+		defer = $q.defer();
+
+	this.user = '';
+
+	this.observeUser = function () {
+		return defer.promise;
+	};
+
+	this.setUser = function (user) {
+		console.log("Sv setting user " + user);
+		self.user = user;
+		defer.notify(self.user);
+		
+	};
+
+	this.getUser = function () {
+		return this.user;
+	};
+
+	this.observeRoom = function () {
+		return defer.promise;
+	};
 	
-	var setUser = function (user) {
-		userInfo = user;
+	this.room = "";	
+
+	this.setRoom = function (room) {
+		self.room = room;
+		defer.notify(self.room);
 	};
 
-	var getUser = function (){
-		return userInfo;
+	this.getRoom = function () {
+		return this.room;
 	};
 
-	var roomInfo = '';
-	
-	var setRoom = function (room) {
-		roomInfo = room;
+	this.observeRoom = function () {
+		return defer.promise;
 	};
 
-	var getRoom = function (){
-		return roomInfo;
+	this.observeTmpArray = function () {
+		return defer.promise;
 	};
 
-	var tmpArray = [];
-	var setArray = function (objects) {
-		tmpArray.push(objects);
+	this.tmpArray = [];
+
+	this.setArray = function (objects) {
+		self.tmpArray.push(objects);
+		defer.notify(self.tmpArray);
 	};
 
-	var getArray = function (){
-		return tmpArray;
-	};
-
-	return {
-		setUser: setUser,
-		getUser: getUser,
-		setRoom: setRoom,
-		getRoom: getRoom,
-		setArray: setArray,
-		getArray: getArray
+	this.getArray = function () {
+		return this.tmpArray;
 	};
 
 });

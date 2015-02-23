@@ -1,13 +1,12 @@
 
 	<h3>Room Window</h3>
-	<input class="login-button btn-block" type="submit" ng-click="logoff()" value="LogOff »">
+	<!-- <input class="login-button btn-block" type="submit" ng-click="logoff()" value="LogOff »" /> -->
 	<div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
 	    {{errorMessage}}
 	</div>
 	<div ng-repeat="user in banned">
 		<div>{{user}}</div>
 	</div>
-	<input type="button" id="" ng-click="getBanned()" value="homos" />
 	<div class="container">
 		<div class="row " style="padding-top:40px;">
 			<div class="col-md-8">
@@ -45,20 +44,17 @@
 								 	<button class="btn btn-default dropdown-toggle" type="button" id="{{op}}" data-toggle="dropdown" aria-expanded="false">
 								    (/'.')/ {{op}}
 								    <span class="caret"></span>
-
-								  </button>
-								  <ul class="dropdown-menu" role="menu" aria-labelledby="{{op}}">
+								 </button>
+								 <ul class="dropdown-menu" role="menu" aria-labelledby="{{op}}">
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="" value="Send Message" /></li>
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="kick(op)" value="Kick" /></li>
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="ban(op)" value="BAN" /></li>
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(op)" value="Op" /></li>
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeop(op)" value="DeOp" /></li>
-								  </ul>
-								</div>							
+								 </ul>
+							</div>							
 						</div>
-
 						<div ng-repeat="user in currentUsers">
-							
 								<div class="dropdown">
 								  <button class="btn btn-default dropdown-toggle" type="button" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
 								    {{user}}
@@ -71,22 +67,24 @@
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doOp(user)" value="Op" /></li>
 								    <li role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="doDeop(user)" value="DeOp" /></li>
 								  </ul>
-								</div>
+							</div>
 						</div>
 					</div>
 	            </div>
-	            <div class="dropdown">
-        			<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()">Unban
-       				<span class="caret"></span></button>
-		        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-		          <li role="presentation">
-		          	<div ng-repeat="user in banned">
-						<span role="presentation"><input type="submit" role="menuitem" tabindex="-1" ng-click="unBan(user)" value="{{user}}" /></span>
-		          	</div>
-		          </li>
-		          
-		        </ul>
-      </div>
+	            	<div class="dropdown">
+        				<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()">Unban
+       						<span class="caret"></span>
+       					</button>
+		        	<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		          		<li role="presentation">
+		          			<div ng-repeat="user in banned">
+								<span role="presentation">
+									<input type="submit" role="menuitem" tabindex="-1" ng-click="unBan(user)" value="{{user}}" />
+								</span>
+							</div>
+		     			</li>
+					</ul>
+      			</div>
 	        </div>
 		</div>
 	</div>

@@ -1,3 +1,11 @@
-<div ng-controller="ChatController">
-
+<div ng-controller="HomeController">
+	<h3>
+		<div>{{message}}</div>
+		<span>home/privatemessages/about/logout</span>
+		<span>möguleiki á að setja tabs fyrir margar</span>
+	</h3>
+	<input class="login-button btn-block" type="submit" ng-click="logoff()" value="LogOff »" />
+	<div>
+		{{newMessage}}
+	</div> 
 </div>
