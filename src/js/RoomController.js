@@ -271,9 +271,7 @@ angular.module("NewIrc").controller("RoomController",
 		});
 	};
 
-
 	$scope.changePassword = function () {
-
 		password_prompt("Please enter your password:", "Submit", function (newPass) {
 
 				console.log("newPass = " + newPass);
@@ -289,7 +287,7 @@ angular.module("NewIrc").controller("RoomController",
 					};
 					socket.emit('removepassword' , tmpObj, function (success) {
 						if(!success){
-							console.log("Really you non (/'.')/ you can't remove password !")
+							console.log("Really you non (/'.')/ you can't remove password !");
 						} else { 
 							$scope.pass = newPass;
 							console.log("(/'.')/ you removed password !");
