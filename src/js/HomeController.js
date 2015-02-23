@@ -10,7 +10,7 @@ angular.module("NewIrc").controller("HomeController", function ($scope, $locatio
 			from: userName,
 			msg: message
 		};
-		privateMessages.push(privateMsg);
+		$scope.privateMessages.push(privateMsg);
 		$scope.newMessage = true;
 	});
 
