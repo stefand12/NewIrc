@@ -102,7 +102,6 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
 	console.log("booboo "+ $routeParams.user);
-	sharedVariables.setUser($routeParams.user);
 	sharedVariables.setRoom($routeParams.room);
 	$scope.pass = $routeParams.pass;
 	$scope.currentUsers = [];
@@ -284,12 +283,6 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 		});
 	};
 
-/*	$scope.logoff = function() {
-		console.log($routeParams.user + " disconnected " + $routeParams.room);
-		socket.emit('disc', $routeParams.user);
-		$location.path('/login/');
-	}
-	
 	/*  */	
 });
 

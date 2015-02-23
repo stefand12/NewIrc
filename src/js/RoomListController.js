@@ -26,11 +26,4 @@ angular.module("NewIrc").controller("RoomListController", function ($scope, $loc
 				$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName +'/'+ password);
 			}
 		};
-
-	/*$scope.logoff = function() {
-		console.log($routeParams.user + " disconnected");
-		socket.emit('disc', $routeParams.user);
-		$location.path('/login/');
-	}*/
-	//$scope.rooms = ['Room 1','Room 2','Room 3','Room 4','Room 5'];
 });
