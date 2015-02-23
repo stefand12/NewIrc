@@ -98,7 +98,8 @@ var password_prompt = function (label_message, button_message, arg3, arg4, arg5)
 
 /* Chat room controller */
 
-angular.module("NewIrc").controller("RoomController", function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
+angular.module("NewIrc").controller("RoomController", 
+	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage) {
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
 	console.log("booboo "+ $routeParams.user);
@@ -282,6 +283,10 @@ angular.module("NewIrc").controller("RoomController", function ($scope, $locatio
 				console.log("listen for bannedList");
 			}
 		});
+	};
+
+	$scope.sendPriv = function (user) {
+		privateMessage.send(user, socket);
 	};
 
 	/*  */	
