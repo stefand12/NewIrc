@@ -8,7 +8,9 @@ angular.module("NewIrc").controller("HomeController",
 
 
   	$scope.closeAlert = function(index) {
-    	$scope.alerts.splice(index, 1);
+  		console.log($scope.alerts);
+    	$scope.alerts.remove(index);
+    	console.log($scope.alerts);
   	};
 
 
