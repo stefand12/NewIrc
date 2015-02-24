@@ -10,9 +10,7 @@
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	height: auto;
 	padding: 10px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	
 }
 
 .vertical-offset-100 {
@@ -173,5 +171,10 @@ p{
 #pm {
 	width:250px;
 	height: 300px;
+	overflow: auto;
+}
+.alert {
+	
+	height: 60px;
 	overflow: auto;
 }
