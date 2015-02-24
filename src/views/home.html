@@ -1,10 +1,10 @@
 <div ng-controller="HomeController">
 
-	<nav class="navbar navbar-default" >
+	<nav class="navbar navbar-default">
 	  	<div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
-				<a class="navbar-brand"href="#">NewIrc</a>
+				<div class="mouse navbar-brand" ng-click="home()">NewIrc</div>
 		    </div>
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -12,28 +12,31 @@
 	    		<div class="col-md-4">
 	      			<ul class="nav navbar-nav" >
 				        <li> <div class="mouse" ng-click="home()"> Home </div></li>
-				        <li> <a ng-href="#/about"> About </a> </li>
+				        <li> <div class="mouse" ng-click="about()"> About </a> </li>
 				        <li> 
-				        	<div class="dropdown">
+				        	<div class="dropdown" >
         						<div class="mouse" id="menuHome" data-toggle="dropdown" ng-click="toggler()">Private Messages
        								<span class="caret"></span>
+       								<div ng-switch on="newMessage">
+		   								<span ng-switch-when="true"><img src="http://rack.0.mshcdn.com/media/ZgkyMDE0LzAyLzIxL2U1L25lbW8uZmIwNjEuZ2lmCnAJdGh1bWIJODUweDg1MD4KZQlqcGc/4d668476/9ee/nemo.jpg" height="42" width="42"> </span>
+		   								<span ng-switch-default></span>
+		 							</div>
+
        							</div>
 		        				<ul class="dropdown-menu" role="menu" aria-labelledby="menuHome">
-		          					<li role="presentation">
-		          						<div ng-repeat="msg in privateMessages">
+		        					<div class="alert alert-block " id="pm" scroll-glue>
+		          					<li role="presentation" >
+		          						<div ng-repeat="msg in privateMessages" autoscroll="">
 											<span role="presentation">
-												<div>{{msg.from}} : {{msg.msg}}</div>
-												<input type="submit" role="menuitem" tabindex="-1" ng-click="reply(msg.from)" value="reply" />
+												<h4>{{msg.from}} says</h4> <div class="messag col-md-4"> {{msg.msg}}
+												<button type="button" class="close" ng-click="reply(msg.from)">Reply</button></div>
 											</span>
 										</div>
 		     						</li>
+		     						</div>
 								</ul>
       						</div>
-      						<div ng-switch on="newMessage">
-   								<span ng-switch-when="true">!</span>
-   								<span ng-switch-default>.</span>
- 							</div>
-				        </li>
+      					</li>
 				        <li><a ng-href="/login" ng-click="logoff()" value="LogOff »"> Log off</a></li>
 	      			</ul>
 	      		</div>
@@ -41,11 +44,15 @@
 		    </div><!-- /.navbar-collapse -->
 	  	</div><!-- /.container-fluid -->
 	</nav>
-	<div ng-repeat="alert in alerts">
-		<div class="{{alert.type}}">
-			<button type="button" class="close" data-dismiss="alert" ng-click="(alert)">x</button>
-			<strong>Warning!</strong>
-				{{alert.msg}}
+	<div id="alertGluggi" scroll-glue>
+		<div class= "alert">
+			<div ng-repeat="alert in alerts" >
+				<div class="{{alert.type}}">
+					<button type="button" class="close" data-dismiss="alert" ng-click="(alert)">x</button>
+					<strong>Message From Server: </strong>
+						{{alert.msg}}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
