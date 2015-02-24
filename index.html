@@ -4,29 +4,8 @@
     	<meta charset="utf-8">
         <title>Routing test</title>
 
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-route/angular-route.min.js"></script>
-        <script src="bower_components\angular-scroll-glue\src\scrollglue.js"></script>
+        
 
-        <script src="src/js/socket.io.min.js"></script>
-        <script src="src/js/NewIrc.js"></script>
-        <script src="src/js/socket-factory.js"></script>
-        
-        <script src="src/js/passPrompt.js"></script>
-        <script src="src/js/privateMessage.js"></script>
-        <script src="src/js/sharedVariables.js"></script>
-        
-        <script src="src/js/HomeController.js"></script>
-        <script src="src/js/AboutController.js"></script>
-        <script src="src/js/UserListController.js"></script>
-        <script src="src/js/RoomListController.js"></script>
-        <script src="src/js/LoginController.js"></script>
-        <script src="src/js/RoomController.js"></script>
-        <script src="src/js/ChatController.js"></script>
-        
-        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="src/css/chatLook.css" />
     </head>
 
 	<body ng-app="NewIrc">
@@ -36,14 +15,13 @@
         <div ng-include="'src/views/home.html'"></div>
 		<div ng-view></div>	
 
-        
-
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="src/css/chatLook.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="dist/js/NewIrc.js"></script>
 	</body>
-    <script src="\bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
-    <script src="\bower_components\bootstrap\js\dropdown.js"></script>
-    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>        
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </html>
 

@@ -1,5 +1,5 @@
 /*jslint browser:true */
-angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($routeProvider) {
+angular.module("NewIrc", ['ngRoute', 'luegg.directives']).config(function ($routeProvider) {
 	$routeProvider
 	.when("/home", {
 		templateUrl: "src/views/home.html",
