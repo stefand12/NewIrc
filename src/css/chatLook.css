@@ -88,7 +88,7 @@ p{
 
 .roomList ul { 
 	list-style: none; 
-	}
+}
 
 .roomList ul li a { 
 	display:block; 
@@ -154,7 +154,7 @@ p{
 .mouseUser:hover {
 	cursor: pointer;
 	background-color: #337AB7;
-	color: #777;
+	color: #ffffff;
 }
 
 .navbar-brand{
@@ -196,9 +196,25 @@ p{
 	font-size:18px; 
 	overflow: auto;
 	-webkit-overflow: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.userListInRoom {
+	font-family:Georgia, Times, serif;
+	font-size:18px; 
+	overflow: auto;
+	-webkit-overflow: auto;
+	width: 340px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .alert {	
-	height: 60px;
+	height: 50px;
+}
+
+#alertGluggi {
+	height: 70px;
 	overflow: auto;
+	-webkit-overflow: auto;
 }
