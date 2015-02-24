@@ -1,105 +1,9 @@
 /*jslint browser:true */
 
-/*
-JavaScript Password Prompt by Luc (luc@ltdinteractive.com)
-Originaly posted to http://stackoverflow.com/questions/9554987/how-can-i-hide-the-password-entered-via-a-javascript-dialog-prompt
-This code is Public Domain :)
-
-Syntax:
-password_prompt(label_message, button_message, callback);
-password_prompt(label_message, button_message, width, height, callback);
-
-Example usage:
-password_prompt("Please enter your password:", "Submit", function(password) {
-    alert("Your password is: " + password);
-});
-*/
-
-var password_prompt = function (label_message, button_message, arg3, arg4, arg5) {
-	var callback;
-	var width;
-	var height;
-    if (typeof label_message !== "string") { 
-    	label_message = "Password:"; 
-    }
-    if (typeof button_message !== "string") { 
-    	button_message = "Submit"; 
-    }
-    if (typeof arg3 === "function") {
-        callback = arg3;
-    }
-    else if (typeof arg3 === "number" && typeof arg4 === "number" && typeof arg5 === "function") {
-        width = arg3;
-        height = arg4;
-        callback = arg5;
-    }
-    if (typeof width !== "number") {
-    	width = 200;
-    }
-    if (typeof height !== "number") {
-    	height = 100;
-    }
-    if (typeof callback !== "function") {
-    	callback = function (password) {};
-    }
-
-    var submit = function () {
-        callback(input.value);
-        document.body.removeChild(div);
-        window.removeEventListener("resize", resize, false);
-    };
-    var resize = function () {
-        div.style.left = ((window.innerWidth / 2) - (width / 2)) + "px";
-        div.style.top = ((window.innerHeight / 2) - (height / 2)) + "px";
-    };
-
-    var div = document.createElement("div");
-    div.id = "password_prompt";
-    div.style.background = "white";
-    div.style.color = "black";
-    div.style.border = "1px solid black";
-    div.style.width = width + "px";
-    div.style.height = height + "px";
-    div.style.padding = "16px";
-    div.style.position = "fixed";
-    div.style.left = ((window.innerWidth / 2) - (width / 2)) + "px";
-    div.style.top = ((window.innerHeight / 2) - (height / 2)) + "px";
-
-    var label = document.createElement("label");
-    label.id = "password_prompt_label";
-    label.innerHTML = label_message;
-    label.for = "password_prompt_input";
-    div.appendChild(label);
-
-    div.appendChild(document.createElement("br"));
-
-    var input = document.createElement("input");
-    input.id = "password_prompt_input";
-    input.type = "password";
-    input.addEventListener("keyup", function (e) {
-        if (e.keyCode == 13) { 
-        	submit();
-        }
-    }, false);
-    div.appendChild(input);
-
-    div.appendChild(document.createElement("br"));
-    div.appendChild(document.createElement("br"));
-
-    var button = document.createElement("button");
-    button.innerHTML = button_message;
-    button.addEventListener("click", submit, false);
-    div.appendChild(button);
-
-    document.body.appendChild(div);
-    window.addEventListener("resize", resize, false);
-};
-
-
 /* Chat room controller */
 
 angular.module("NewIrc").controller("RoomController", 
-	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage) {
+	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage, passPrompt) {
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
 	console.log("booboo "+ $routeParams.user);
@@ -126,7 +30,7 @@ angular.module("NewIrc").controller("RoomController",
 	socket.emit('joinroom', test, function (success, reason) {
 	if (!success) {
 		if(reason === "wrong password") {
-			password_prompt("Please enter your password:", "Submit", function (passWrd) {
+			passPrompt.password_prompt("Please enter your password:", "Submit", function (passWrd) {
 				$rootScope.$apply(function () {
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
 				});
@@ -272,38 +176,36 @@ angular.module("NewIrc").controller("RoomController",
 	};
 
 	$scope.changePassword = function () {
-		password_prompt("Please enter your password:", "Submit", function (newPass) {
-
-				console.log("newPass = " + newPass);
-				
-				var tmpObj = {
-					password: newPass,
+		passPrompt.password_prompt("Please enter your password:", "Submit", function (newPass) {
+			console.log("newPass = " + newPass);
+			
+			var tmpObj = {
+				password: newPass,
+				room: $scope.currentRoom
+			};
+			if (newPass === undefined || newPass === '') {
+				tmpObj = {
+					password: '',
 					room: $scope.currentRoom
 				};
-				if (newPass === undefined || newPass === '') {
-					tmpObj = {
-						password: '',
-						room: $scope.currentRoom
-					};
-					socket.emit('removepassword' , tmpObj, function (success) {
-						if(!success){
-							console.log("Really you non (/'.')/ you can't remove password !");
-						} else { 
-							$scope.pass = newPass;
-							console.log("(/'.')/ you removed password !");
-						}
-					});
-				} else {
-					socket.emit('setpassword', tmpObj, function (success) {
-						if(!success) {
-							console.log("Really you non (/'.')/ you can't set password !");
-						} else {
-							$scope.pass = newPass;
-							console.log("(/'.')/ you changed password !");
-						}
-					});
-				}
-			
+				socket.emit('removepassword' , tmpObj, function (success) {
+					if(!success){
+						console.log("Really you non (/'.')/ you can't remove password !");
+					} else { 
+						$scope.pass = newPass;
+						console.log("(/'.')/ you removed password !");
+					}
+				});
+			} else {
+				socket.emit('setpassword', tmpObj, function (success) {
+					if(!success) {
+						console.log("Really you non (/'.')/ you can't set password !");
+					} else {
+						$scope.pass = newPass;
+						console.log("(/'.')/ you changed password !");
+					}
+				});
+			}
 		});
 	};
 
