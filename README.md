@@ -13,16 +13,22 @@ NewIrc er rosaflott chat forrit búið til af
 Smíða NewIrc
 ------------
 
-Til að geta byrjað þarf að hafa 
-NodeJS og Grunt
+	Til að geta byrjað þarf að hafa 
+	* NodeJS
+	--------
+		http://nodejs.org/
 
-Ef NodeJS og grunt á að vera nóg að keyra þessar 3 skipanir í command line inni í 
-möppunni þar sem þú settir inn projectið (git clone eða afþjappaðir .rar file)
+	* grunt
+	------- 
+		http://gruntjs.com/
 
-* npm install
-* bower install
-og að lokum
-* grunt
+	Ef NodeJS og grunt á að vera nóg að keyra þessar 3 skipanir í command line inni í 
+	möppunni þar sem þú settir inn projectið (git clone eða afþjappaðir .rar file)
+
+	* npm install
+	* bower install
+	og að lokum
+	* grunt
 
 Keyrsla NewIrc
 --------------
