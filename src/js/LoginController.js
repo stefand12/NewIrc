@@ -1,4 +1,12 @@
-angular.module("NewIrc").controller("LoginController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage', function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
+angular.module("NewIrc").controller("LoginController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	     'sharedVariables',
+	      'privateMessage',
+	       function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
 	$scope.errorMessage = '';
 	$scope.nickname = '';
 //<input class="login-button btn-block" type="submit" ng-click="login()" value="Login »">

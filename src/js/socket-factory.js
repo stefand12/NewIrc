@@ -1,7 +1,9 @@
 // Factory to wrap around the socket functions
 // Borrowed from Brian Ford
 // http://briantford.com/blog/angular-socket-io.html
-angular.module("NewIrc").factory('socket', ['$rootScope', function ($rootScope) {
+angular.module("NewIrc").factory('socket', [
+    '$rootScope',
+     function ($rootScope) {
     var socket = io.connect('http://localhost:8088');
     return {
         on: function (eventName, callback) {

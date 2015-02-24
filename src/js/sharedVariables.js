@@ -1,5 +1,6 @@
-angular.module("NewIrc").service('sharedVariables', ['$q', function ($q) {
-
+angular.module("NewIrc").service('sharedVariables', [
+	'$q',
+	 function ($q) {
 	var self = this, 
 		defer = $q.defer();
 

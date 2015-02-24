@@ -1,4 +1,11 @@
-angular.module("NewIrc").controller("ChatController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage', function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
+angular.module("NewIrc").controller("ChatController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	     'sharedVariables',
+	       function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables) {
 	$scope.message = "You are logged in as:";
 	$scope.msgText = '';
 	$scope.currentUser = sharedVariables.getUser();

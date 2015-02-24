@@ -1,5 +1,6 @@
 /*jslint browser:true */
-angular.module("NewIrc", ['ngRoute', 'luegg.directives']).config(function ($routeProvider) {
+angular.module("NewIrc", ['ngRoute', 'luegg.directives']).config(['$routeProvider',
+ function ($routeProvider) {
 	$routeProvider
 	.when("/home", {
 		templateUrl: "src/views/home.html",
@@ -36,6 +37,6 @@ angular.module("NewIrc", ['ngRoute', 'luegg.directives']).config(function ($rout
 	.otherwise({
 		redirectTo: "/login"
 	});
-});
+}]);
 
 

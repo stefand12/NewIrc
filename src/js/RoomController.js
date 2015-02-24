@@ -2,7 +2,15 @@
 
 /* Chat room controller */
 
-angular.module("NewIrc").controller("RoomController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage',
+angular.module("NewIrc").controller("RoomController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	     'sharedVariables',
+	      'privateMessage', 
+	      'passPrompt',
 	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage, passPrompt) {
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
@@ -27,14 +35,14 @@ angular.module("NewIrc").controller("RoomController", ['$scope', '$location', '$
 	};
 	
 	socket.emit('joinroom', test, function (success, reason) {
-	if (!success) {
-		if(reason === "wrong password") {
-			passPrompt.password_prompt("Please enter your password:", "Submit", function (passWrd) {
-				$rootScope.$apply(function () {
-					$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
+		if (!success) {
+			if(reason === "wrong password") {
+				passPrompt.password_prompt("Please enter your password:", "Submit", function (passWrd) {
+					$rootScope.$apply(function () {
+						$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
+					});
 				});
-			});
-		}
+			}
 			$location.path('/rooms/' + $scope.currentUser);
 		}
 	});

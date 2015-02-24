@@ -1,4 +1,10 @@
-angular.module("NewIrc").controller("RoomListController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage', function ($scope, $location, $rootScope, $routeParams, socket) {
+angular.module("NewIrc").controller("RoomListController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	       function ($scope, $location, $rootScope, $routeParams, socket) {
 	//TODO GET ROOM LIST
 	//	
 		if($routeParams.user === 'undefined') {

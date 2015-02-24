@@ -1,5 +1,12 @@
 /*jslint browser:true */
-angular.module("NewIrc").controller("HomeController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage',
+angular.module("NewIrc").controller("HomeController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	     'sharedVariables',
+	      'privateMessage',	      
 	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage) {
 
 	$scope.privateMessages = [];

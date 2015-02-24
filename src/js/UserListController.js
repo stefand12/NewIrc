@@ -1,4 +1,12 @@
-angular.module("NewIrc").controller("UserListController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage',
+angular.module("NewIrc")
+.controller("UserListController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	     'sharedVariables',
+	      'privateMessage',
 	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage) {
 	
 	$scope.currentUser = $routeParams.users;

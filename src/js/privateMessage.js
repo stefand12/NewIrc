@@ -1,6 +1,6 @@
 /*jslint browser:true */
-angular.module("NewIrc").service('privateMessage', function () {
-
+angular.module("NewIrc").service('privateMessage', [
+	function () {
 	this.send = function (user, socket) {
 		var message = window.prompt("type in message");
 		console.log("message to user" + user);
@@ -15,4 +15,4 @@ angular.module("NewIrc").service('privateMessage', function () {
 			}
 		});
 	};
-});
+}]);

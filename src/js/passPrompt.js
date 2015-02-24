@@ -1,5 +1,5 @@
 /*jslint browser:true */
-angular.module("NewIrc").service('passPrompt', function () {
+
 /*
 JavaScript Password Prompt by Luc (luc@ltdinteractive.com)
 Originaly posted to http://stackoverflow.com/questions/9554987/how-can-i-hide-the-password-entered-via-a-javascript-dialog-prompt
@@ -14,7 +14,8 @@ password_prompt("Please enter your password:", "Submit", function(password) {
     alert("Your password is: " + password);
 });
 */
-
+angular.module("NewIrc").service('passPrompt', [
+ function () {
 	this.password_prompt = function (label_message, button_message, arg3, arg4, arg5) {
 		var callback;
 		var width;
@@ -94,4 +95,4 @@ password_prompt("Please enter your password:", "Submit", function(password) {
 	    document.body.appendChild(div);
 	    window.addEventListener("resize", resize, false);
 	};
-});
+}]);
