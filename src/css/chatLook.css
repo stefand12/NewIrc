@@ -55,21 +55,9 @@ p{
 
 #mainChatRoom {
 	float: left;
-	margin-left;
 	border: 1px solid #8c8c8c;
 	width: 748px;
 	height: 300px;
-	overflow: auto;
-	-webkit-overflow: auto;
-	overflow-x:hidden;
-	border-bottom-right-radius: 0.8%;
-	border-bottom-left-radius: 0.8%;  
-}
-
-#online-users{
-	border: 1px solid #8c8c8c;
-	width: 358px;
-	height: 378px;
 	overflow: auto;
 	-webkit-overflow: auto;
 	overflow-x:hidden;
@@ -146,7 +134,7 @@ p{
 	color: #000000;
 	padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 15px;
+    padding-left: 5px;
     padding-right: 15px;
     border-bottom: 1px solid;
     border-color: #CCCCCC;
@@ -199,15 +187,17 @@ p{
 	padding-left: 15px;
 	padding-right: 15px;
 }
-.userListInRoom {
+
+#online-users{
 	font-family:Georgia, Times, serif;
-	font-size:18px; 
-	overflow: auto;
+	font-size:18px;
+	overflow: auto; 
 	-webkit-overflow: auto;
-	width: 340px;
-	padding-left: 15px;
-	padding-right: 15px;
-	height: 390px;
+	border: 1px solid #8c8c8c;
+	width: 358px;
+	height: 378px;
+	border-bottom-right-radius: 0.8%;
+	border-bottom-left-radius: 0.8%;  
 }
 
 .alert {	
@@ -218,4 +208,9 @@ p{
 	height: 70px;
 	overflow: auto;
 	-webkit-overflow: auto;
+}
+
+.container{
+	padding-left: 0px;
+	padding-right: 27px;
 }

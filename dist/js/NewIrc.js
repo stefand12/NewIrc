@@ -28859,8 +28859,9 @@ angular.module("NewIrc").service('privateMessage', [
 			}
 		});
 	};
-}]);;angular.module("NewIrc").service('sharedVariables', ['$q', function ($q) {
-
+}]);;angular.module("NewIrc").service('sharedVariables', [
+	'$q',
+	 function ($q) {
 	var self = this, 
 		defer = $q.defer();
 
@@ -28916,7 +28917,9 @@ angular.module("NewIrc").service('privateMessage', [
 }]);;// Factory to wrap around the socket functions
 // Borrowed from Brian Ford
 // http://briantford.com/blog/angular-socket-io.html
-angular.module("NewIrc").factory('socket', ['$rootScope', function ($rootScope) {
+angular.module("NewIrc").factory('socket', [
+    '$rootScope',
+     function ($rootScope) {
     var socket = io.connect('http://localhost:8088');
     return {
         on: function (eventName, callback) {
@@ -29170,7 +29173,13 @@ angular.module("NewIrc").controller("HomeController", [
 		privateMessage.send(user, socket);
 	};
 
-}]);;angular.module("NewIrc").controller("RoomListController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage', function ($scope, $location, $rootScope, $routeParams, socket) {
+}]);;angular.module("NewIrc").controller("RoomListController", [
+	'$scope',
+	 '$location',
+	  '$rootScope',
+	   '$routeParams',
+	    'socket',
+	       function ($scope, $location, $rootScope, $routeParams, socket) {
 	//TODO GET ROOM LIST
 	//	
 		if($routeParams.user === 'undefined') {
@@ -29277,14 +29286,14 @@ angular.module("NewIrc").controller("RoomController", [
 	};
 	
 	socket.emit('joinroom', test, function (success, reason) {
-	if (!success) {
-		if(reason === "wrong password") {
-			passPrompt.password_prompt("Please enter your password:", "Submit", function (passWrd) {
-				$rootScope.$apply(function () {
-					$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
+		if (!success) {
+			if(reason === "wrong password") {
+				passPrompt.password_prompt("Please enter your password:", "Submit", function (passWrd) {
+					$rootScope.$apply(function () {
+						$location.path('/room/' + $scope.currentUser +'/'+ $scope.currentRoom +'/'+ passWrd);
+					});
 				});
-			});
-		}
+			}
 			$location.path('/rooms/' + $scope.currentUser);
 		}
 	});
