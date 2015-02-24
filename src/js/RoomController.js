@@ -51,55 +51,39 @@ angular.module("NewIrc").controller("RoomController", [
 	socket.on('updateusers', function (roomName, users, ops) {
 		if(roomName === $scope.currentRoom) {
 			$scope.bubbar = _.toArray(ops);
-			console.log($scope.bubbar);
 			$scope.currentUsers = _.toArray(users);
-			console.log($scope.currentUsers);
 			$scope.currentUsers = _.difference($scope.currentUsers, $scope.bubbar);
-			console.log($scope.currentUsers);
 		}
 	});
 
 	/* listen for events */
 	socket.on('updatechat', function (roomName, messageHistory) {
 		if(roomName === $scope.currentRoom) {
-			for(var mH in messageHistory) {
-				console.log(messageHistory[mH].message);
-			}
 			$scope.messages = messageHistory;
 		}
 	});
 
 	socket.on('updatetopic', function (roomName, roomTopic, user) {
-		console.log(roomTopic);
 		if(roomName === $scope.currentRoom) {
 			$scope.channelTopic = roomTopic;
-			console.log(user + " changed the topic to: " + roomTopic);
 			$scope.newTopic = '';
 		}
 	});
-
+	
+	/* höndlað í homecontroller
 	socket.on('servermessage', function (tag, roomName, user) {
 		if(roomName === $scope.currentRoom){
-			console.log(user + " " + tag + "ed " + roomName);
-		}
-		/* skoða hvað við viljum gera við þetta message */
-	});
 
-	socket.on('bannedlist', function (userName ,channel, bannedlist) {
-		console.log("caught bannedlist");
-		if(channel === $scope.currentRoom) {
-			console.log("currentRoom");
-			console.log($scope.currentUser);
-			if(userName === $scope.currentUser) {
-				console.log("user is op");
-				$scope.banned = _.toArray(bannedlist);
-				
-			} else {
-				console.log("user isn't op");
-			}
-		} else {
-			console.log("not Mine");
 		}
+		
+	});
+	*/
+	socket.on('bannedlist', function (userName ,channel, bannedlist) {
+		if(channel === $scope.currentRoom) {
+			if(userName === $scope.currentUser) {
+				$scope.banned = _.toArray(bannedlist);				
+			}
+		} 
 	});
 
 	$scope.doOp = function (looser) {
@@ -139,8 +123,6 @@ angular.module("NewIrc").controller("RoomController", [
 	};
 
 	$scope.unBan = function (user) {
-		console.log("unban called");
-		console.log(user);
 		var tmpObj = {
 			user: user,
 			room: $scope.currentRoom
@@ -184,8 +166,6 @@ angular.module("NewIrc").controller("RoomController", [
 
 	$scope.changePassword = function () {
 		passPrompt.password_prompt("Please enter your password:", "Submit", function (newPass) {
-			console.log("newPass = " + newPass);
-			
 			var tmpObj = {
 				password: newPass,
 				room: $scope.currentRoom
@@ -220,9 +200,7 @@ angular.module("NewIrc").controller("RoomController", [
 		socket.emit('getBanned', $scope.currentRoom, function (success) {
 			if(!success) {
 				console.log("Really you non (/'.')/ you can't know who's banned !");
-			} else {
-				console.log("listen for bannedList");
-			}
+			} 
 		});
 	};
 

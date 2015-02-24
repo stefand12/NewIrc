@@ -17,7 +17,6 @@ angular.module("NewIrc").controller("RoomListController", [
 			var bull = data;
 			var rambo;
 			for(rambo in data) {
-				console.log("room: " + rambo);
 				test.push(rambo);
 			}
 			$scope.rooms = test;
@@ -33,11 +32,9 @@ angular.module("NewIrc").controller("RoomListController", [
 				$scope.errorMessage = "Choose a name for your channel";
 			} else {
 				if($scope.password === undefined) {
-					console.log("psWd undefined");
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName );
 				}
 				else {
-					console.log("psWd else " + psWd);
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName +'/'+ password);
 				}
 			}

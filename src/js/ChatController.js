@@ -10,12 +10,8 @@ angular.module("NewIrc").controller("ChatController", [
 	$scope.msgText = '';
 	$scope.currentUser = sharedVariables.getUser();
 	$scope.currentRoom = sharedVariables.getRoom();
-	console.log("getúser " + sharedVariables.getUser());
-	console.log("getRúm " + sharedVariables.getRoom());
 
 	$scope.sendMessage = function() {
-		console.log($scope.msgText);
-		console.log($scope.currentRoom);
 		var messageObj = {
 				roomName : $scope.currentRoom,
 				msg : $scope.msgText

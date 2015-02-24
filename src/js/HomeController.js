@@ -43,8 +43,6 @@ angular.module("NewIrc").controller("HomeController", [
 			}
 			$scope.alerts.push(alert);
 		} else if(roomName === $scope.currentRoom) {
-			console.log("alert check s.c " + $scope.currentUser);
-			console.log("alert check u " + user);
 			if(user === $scope.currentUser) {
 				alert.type = 'alert alert-warning';
 				if(tag === 'part') {
@@ -121,10 +119,6 @@ angular.module("NewIrc").controller("HomeController", [
 		if(user === $scope.currentUser) {
 			alert.msg = "You've been deopped in " + roomName + " by " + byUser;
 			$scope.alerts.push(alert);
-			if(roomName === $scope.currentRoom) {
-				$scope.currentRoom ="";
-				$location.path('/rooms/' + $scope.currentUser);
-			}
 		} else if($scope.currentRoom === roomName) {
 			alert.msg = user + " has been deopped in " + roomName + " by " + byUser;
 			$scope.alerts.push(alert);
@@ -155,7 +149,6 @@ angular.module("NewIrc").controller("HomeController", [
 	});
 
 	sharedVariables.observeRoom().then(null, null, function (room) {
-		console.log("scope.currentRoom = " + room);
 		$scope.currentRoom = sharedVariables.getRoom();
 	});
 
@@ -182,9 +175,7 @@ angular.module("NewIrc").controller("HomeController", [
 
 
 	$scope.closeAlert = function(index) {
-  		console.log($scope.alerts);
     	$scope.alerts.remove(index);
-    	console.log($scope.alerts);
   	};
 
   	$scope.toggler = function () {

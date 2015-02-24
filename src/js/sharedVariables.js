@@ -12,7 +12,6 @@ angular.module("NewIrc").service('sharedVariables', [
 	};
 
 	this.setUser = function (user) {
-		console.log("Sv setting user " + user);
 		self.user = user;
 		defer.notify(self);
 		

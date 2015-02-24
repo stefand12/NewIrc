@@ -1,24 +1,25 @@
 <div ng-controller="UserListController">
-
-  <div id="availableRooms" class="col-md-12">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        Active chat users
-      </div>
-      <div class="userList">
-        <div ng-repeat="user in users">
-          <div class="dropdown">
-            <div class="mouseUser dropdown-toggle"  id="{{user}}" data-toggle="dropdown" aria-expanded="false">
-              {{user}}
+    <div id="availableRooms" class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Active chat users
             </div>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
-              <li role="presentation">
-                <div class="mouseUser" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" >Send private message</div>
-              </li>
-            </ul>
-          </div>
+            <div class="userList">
+                <div ng-repeat="user in users">
+                    <div class="dropdown">
+                        <div class="mouseUser dropdown-toggle" id="{{user}}" data-toggle="dropdown" aria-expanded="false">
+                            {{user}}
+                        </div>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
+                            <li role="presentation">
+                                <div class="mouseUser" role="menuitem" tabindex="-1" ng-click="sendPriv(user)" value="Send Message" >
+                                    Send private message
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
