@@ -165,3 +165,13 @@ p{
 	background-color: #286090;
 }
 
+.messag {
+	width: 200px;
+	word-wrap: break-word;
+}
+
+#pm {
+	width:250px;
+	height: 300px;
+	overflow: auto;
+}

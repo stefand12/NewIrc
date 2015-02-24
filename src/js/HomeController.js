@@ -168,18 +168,22 @@ angular.module("NewIrc").controller("HomeController",
 
 	$scope.logoff = function () {
 		console.log($routeParams.user + " disconnected");
+		$scope.privateMessages = [];
+		$scope.alerts = [];
 		socket.emit('disc', $routeParams.user);
 		sharedVariables.setUser('');
 		$location.path('/login/');
 	};
 
 	$scope.home = function () {
-		console.location("home pushed");
 		$location.path('/rooms/' + $routeParams.user);
 	};
 
 	$scope.reply = function (user) {
-		console.log(user);
 		privateMessage.send(user, socket);
+	};
+
+	$scope.about = function () {
+		$location.path('/about/' + $routeParams.user);
 	};
 });

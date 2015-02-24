@@ -1,3 +1,3 @@
 angular.module("NewIrc").controller("AboutController", function ($scope) {
-	$scope.message = "Hello from about";
+	$scope.message = "About NewIrc";
 });

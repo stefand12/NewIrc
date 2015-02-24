@@ -6,7 +6,7 @@ angular.module("NewIrc", ["ngRoute", "luegg.directives"]).config(function ($rout
 		templateUrl: "src/views/home.html",
 		controller: "HomeController"
 	})
-	.when("/about", {
+	.when("/about/:user", {
 		templateUrl: "src/views/about.html",
 		controller: "AboutController"
 	})
