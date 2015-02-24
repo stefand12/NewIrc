@@ -51,20 +51,14 @@ angular.module("NewIrc").controller("RoomController", [
 	socket.on('updateusers', function (roomName, users, ops) {
 		if(roomName === $scope.currentRoom) {
 			$scope.bubbar = _.toArray(ops);
-			console.log($scope.bubbar);
 			$scope.currentUsers = _.toArray(users);
-			console.log($scope.currentUsers);
 			$scope.currentUsers = _.difference($scope.currentUsers, $scope.bubbar);
-			console.log($scope.currentUsers);
 		}
 	});
 
 	/* listen for events */
 	socket.on('updatechat', function (roomName, messageHistory) {
 		if(roomName === $scope.currentRoom) {
-			for(var mH in messageHistory) {
-				console.log(messageHistory[mH].message);
-			}
 			$scope.messages = messageHistory;
 		}
 	});
@@ -73,18 +67,18 @@ angular.module("NewIrc").controller("RoomController", [
 		console.log(roomTopic);
 		if(roomName === $scope.currentRoom) {
 			$scope.channelTopic = roomTopic;
-			console.log(user + " changed the topic to: " + roomTopic);
 			$scope.newTopic = '';
 		}
 	});
-
+	
+	/* höndlað í homecontroller
 	socket.on('servermessage', function (tag, roomName, user) {
 		if(roomName === $scope.currentRoom){
-			console.log(user + " " + tag + "ed " + roomName);
-		}
-		/* skoða hvað við viljum gera við þetta message */
-	});
 
+		}
+		
+	});
+	*/
 	socket.on('bannedlist', function (userName ,channel, bannedlist) {
 		console.log("caught bannedlist");
 		if(channel === $scope.currentRoom) {

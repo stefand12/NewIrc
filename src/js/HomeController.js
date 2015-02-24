@@ -121,10 +121,6 @@ angular.module("NewIrc").controller("HomeController", [
 		if(user === $scope.currentUser) {
 			alert.msg = "You've been deopped in " + roomName + " by " + byUser;
 			$scope.alerts.push(alert);
-			if(roomName === $scope.currentRoom) {
-				$scope.currentRoom ="";
-				$location.path('/rooms/' + $scope.currentUser);
-			}
 		} else if($scope.currentRoom === roomName) {
 			alert.msg = user + " has been deopped in " + roomName + " by " + byUser;
 			$scope.alerts.push(alert);

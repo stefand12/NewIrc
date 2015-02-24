@@ -50,10 +50,10 @@
 								<div class="userListInRoom">
 					        <div ng-repeat="op in bubbar">
 					          <div class="dropdown">
-					            <div class="mouseUser dropdown-toggle"  id="{{user}}" data-toggle="dropdown" aria-expanded="false">
+					            <div class="mouseUser dropdown-toggle"  id="{{op}}" data-toggle="dropdown" aria-expanded="false">
 					              (/'.')/ {{op}}
 					            </div>
-					            <ul class="dropdown-menu" role="menu" aria-labelledby="{{user}}">
+					            <ul class="dropdown-menu" role="menu" aria-labelledby="{{op}}">
 					              <li role="presentation">
 					                <div class="mouseUser" role="menuitem" tabindex="-1" ng-click="sendPriv(op)" value="Send Message" >Send private message</div>
 					                <div class="mouseUser" role="menuitem" tabindex="-1" ng-click="kick(op)" value="Kick" >Kick</div>
