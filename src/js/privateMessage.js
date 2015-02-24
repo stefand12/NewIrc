@@ -1,3 +1,4 @@
+/*jslint browser:true */
 angular.module("NewIrc").service('privateMessage', function () {
 
 	this.send = function (user, socket) {

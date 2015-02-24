@@ -1,19 +1,9 @@
 /*jslint browser:true */
-angular.module("NewIrc").controller("HomeController", 
+angular.module("NewIrc").controller("HomeController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage',
 	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage) {
 
 	$scope.privateMessages = [];
-	
 	$scope.alerts = [];
-
-
-  	$scope.closeAlert = function(index) {
-  		console.log($scope.alerts);
-    	$scope.alerts.remove(index);
-    	console.log($scope.alerts);
-  	};
-
-
 	$scope.newMessage = false;
 	$scope.currentUser = sharedVariables.getUser();
 	$scope.currentRoom = sharedVariables.getRoom();
@@ -27,10 +17,6 @@ angular.module("NewIrc").controller("HomeController",
 		$scope.privateMessages.push(privateMsg);
 		$scope.newMessage = true;
 	});
-
-	$scope.toggler = function () {
-		$scope.newMessage = false;
-	};
 
 	socket.on('servermessage', function (tag, roomName, user) {
 		var alert = {
@@ -182,4 +168,15 @@ angular.module("NewIrc").controller("HomeController",
 		console.log(user);
 		privateMessage.send(user, socket);
 	};
-});
+
+	$scope.closeAlert = function(index) {
+  		console.log($scope.alerts);
+    	$scope.alerts.remove(index);
+    	console.log($scope.alerts);
+  	};
+
+  	$scope.toggler = function () {
+		$scope.newMessage = false;
+	};
+
+}]);

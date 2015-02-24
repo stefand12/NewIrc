@@ -1,4 +1,4 @@
-angular.module("NewIrc").service('sharedVariables', function ($q) {
+angular.module("NewIrc").service('sharedVariables', ['$q', function ($q) {
 
 	var self = this, 
 		defer = $q.defer();
@@ -52,4 +52,4 @@ angular.module("NewIrc").service('sharedVariables', function ($q) {
 	this.getArray = function () {
 		return this.tmpArray;
 	};
-})
+}]);

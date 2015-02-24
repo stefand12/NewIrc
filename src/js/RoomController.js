@@ -2,11 +2,10 @@
 
 /* Chat room controller */
 
-angular.module("NewIrc").controller("RoomController", 
+angular.module("NewIrc").controller("RoomController", ['$scope', '$location', '$rootScope', '$routeParams', 'socket', 'sharedVariables', 'privateMessage',
 	function ($scope, $location, $rootScope, $routeParams, socket, sharedVariables, privateMessage, passPrompt) {
 	$scope.currentUser = $routeParams.user;
 	$scope.currentRoom = $routeParams.room;
-	console.log("booboo "+ $routeParams.user);
 	sharedVariables.setRoom($routeParams.room);
 	$scope.pass = $routeParams.pass;
 	$scope.currentUsers = [];
@@ -209,37 +208,6 @@ angular.module("NewIrc").controller("RoomController",
 		});
 	};
 
-	/*$scope.changePassword = function () {
-		
-		var tmpObj = {
-			password: $scope.newPassword,
-			room: $scope.currentRoom
-		};
-		if ($scope.newPassword === undefined || $scope.newPassword === '') {
-			tmpObj = {
-				password: '',
-				room: $scope.currentRoom
-			};
-			socket.emit('removepassword' , tmpObj, function (success) {
-				if(!success){
-					console.log("Really you non (/'.')/ you can't remove password !")
-				} else { 
-					$scope.pass = $scope.newPassword;
-					console.log("(/'.')/ you removed password !");
-				}
-			});
-		} else {
-			socket.emit('setpassword', tmpObj, function (success) {
-				if(!success) {
-					console.log("Really you non (/'.')/ you can't set password !");
-				} else {
-					$scope.pass = $scope.newPassword;
-					console.log("(/'.')/ you changed password !");
-				}
-			});
-		}
-	};*/
-
 	$scope.getBanned = function () {
 		socket.emit('getBanned', $scope.currentRoom, function (success) {
 			if(!success) {
@@ -255,7 +223,7 @@ angular.module("NewIrc").controller("RoomController",
 	};
 
 	/*  */	
-});
+}]);
 
 
 
