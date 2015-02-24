@@ -43,8 +43,6 @@ angular.module("NewIrc").controller("HomeController", [
 			}
 			$scope.alerts.push(alert);
 		} else if(roomName === $scope.currentRoom) {
-			console.log("alert check s.c " + $scope.currentUser);
-			console.log("alert check u " + user);
 			if(user === $scope.currentUser) {
 				alert.type = 'alert alert-warning';
 				if(tag === 'part') {
@@ -151,7 +149,6 @@ angular.module("NewIrc").controller("HomeController", [
 	});
 
 	sharedVariables.observeRoom().then(null, null, function (room) {
-		console.log("scope.currentRoom = " + room);
 		$scope.currentRoom = sharedVariables.getRoom();
 	});
 
@@ -178,9 +175,7 @@ angular.module("NewIrc").controller("HomeController", [
 
 
 	$scope.closeAlert = function(index) {
-  		console.log($scope.alerts);
     	$scope.alerts.remove(index);
-    	console.log($scope.alerts);
   	};
 
   	$scope.toggler = function () {

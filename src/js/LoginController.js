@@ -16,13 +16,9 @@ angular.module("NewIrc").controller("LoginController", [
 		} else {
 			socket.emit('adduser', $scope.nickname, function (available) {
 				if (available) {
-					console.log("setting user name lgC");
-
 					sharedVariables.setUser($scope.nickname);
-					console.log("logged in as " + $scope.nickname);
 					$location.path('/rooms/' + $scope.nickname);
 				} else {
-					console.log("nei ekki hægt ");
 					$scope.errorMessage = 'This nick-name is unavailable!';
 				}
 			});			
