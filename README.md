@@ -4,9 +4,9 @@ NewIrc
 NewIrc er rosaflott chat forrit búið til af
 
 * Gunnari Karli Pálmasyni gunnarkp13@ru.is
-* 
-*
-*
+* Stefáni Inga Daníelssyni stefand12@ru.is
+* Guðjóni Péturssyni gudjon12@ru.is
+* Ólafi Ívari Jónssyni olafurij12@ru.is
 
 * Git-Repo: https://github.com/stefand12/NewIrc - læst eins og er.
 

@@ -8,21 +8,21 @@
 				<div class="panel-heading">
 					{{currentRoom}}
 					<a class="close" ng-click="leaveRoom()" >&times;</a>
-						<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
-						<span class="btn-group">
-							<input type="button" class="btn btn-primary" ng-click="changeTopic()" value="Change Topic"/>
-							<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()"	  >Unban
-								<span class="caret"></span>
-							</button>
-			      			<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-		          				<li role="presentation">
-		          					<div ng-repeat="user in banned">
-									<div class="mouseUser" role="menuitem" tabindex="-1" ng-click="unBan(user)">{{user}}</div>
-									</div>
-		     					</li>
-							</ul>
-							<div  class="btn btn-primary" ng-click="changePassword()" value="pwdChange">Password</div>
-						</span>
+					<input type="text" class="form-control" placeholder="{{channelTopic}}" id="newTopic" name="newTopic" ng-model="newTopic" />
+					<span class="btn-group">
+						<input type="button" class="btn btn-primary" ng-click="changeTopic()" value="Change Topic"/>
+						<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" ng-click="getBanned()"	  >Unban
+							<span class="caret"></span>
+						</button>
+		      			<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+	          				<li role="presentation">
+	          					<div ng-repeat="user in banned">
+								<div class="mouseUser" role="menuitem" tabindex="-1" ng-click="unBan(user)">{{user}}</div>
+								</div>
+	     					</li>
+						</ul>
+						<div  class="btn btn-primary" ng-click="changePassword()" value="pwdChange">Password</div>
+					</span>
 				</div>
 				<div id="mainChatRoom" scroll-glue>
 					<div class="panel-body">
@@ -30,7 +30,7 @@
 							<span class="media">
                 				<div class="media-body" >
                   					<small class="text-muted">{{message.nick}} | {{message.timestamp}} : </small>
-                  						{{message.message}} {{message.servermessage}}
+                  					{{message.message}}
                					</div>
              				</span>
 						</div>
@@ -81,11 +81,9 @@
 						</div>
 					</div>
     			</div>
-
 			</div>
 		</div>
 	</div>
 </div>
-
 <!-- cmnd line  -->
 <div ng-include="'src/views/chat.html'" id="Input"></div>

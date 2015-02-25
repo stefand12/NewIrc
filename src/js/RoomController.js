@@ -49,6 +49,7 @@ angular.module("NewIrc").controller("RoomController", [
 			}
 		});
 
+
 		/* listen for events */
 		socket.on('updateusers', function (roomName, users, ops) {
 			if(roomName === $scope.currentRoom) {
@@ -70,15 +71,7 @@ angular.module("NewIrc").controller("RoomController", [
 				$scope.newTopic = '';
 			}
 		});
-		
-		/* höndlað í homecontroller
-		socket.on('servermessage', function (tag, roomName, user) {
-			if(roomName === $scope.currentRoom){
 
-			}
-			
-		});
-		*/
 		socket.on('bannedlist', function (userName ,channel, bannedlist) {
 			if(channel === $scope.currentRoom) {
 				if(userName === $scope.currentUser) {
@@ -208,7 +201,6 @@ angular.module("NewIrc").controller("RoomController", [
 		$scope.sendPriv = function (user) {
 			privateMessage.send(user, socket);
 		};
-	/*  */	
 }]);
 
 

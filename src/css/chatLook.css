@@ -41,7 +41,7 @@
 	border-radius: 4px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-		border-bottom-right-radius: 1%;
+	border-bottom-right-radius: 1%;
 	border-bottom-left-radius: 1%;  
 }
 
@@ -101,6 +101,7 @@
 	border-bottom-color:#CCCCCC; 
 	padding-left:75px;  
 }
+
 .roomList ul li a:hover { 
 	color:#ffffff; 
 	background-color: #337AB7; 
@@ -130,6 +131,7 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .mouse:hover {
 	cursor: pointer;
 	color: black;
@@ -219,4 +221,8 @@
 h2{
 	margin-top: -30px;
 	margin-left: 50px;
+}
+
+.vid {
+	list-style: none;
 }

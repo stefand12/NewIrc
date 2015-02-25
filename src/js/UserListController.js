@@ -16,8 +16,7 @@ angular.module("NewIrc")
 	var refreshUsers = setInterval( function () {
 		socket.emit('users');
 	}, 10000);
-
-		
+	
 	socket.on('userlist', function (data) {
 		var listtest = [];
 		for(var x in data){
@@ -26,9 +25,7 @@ angular.module("NewIrc")
 		$scope.users = listtest;
 	});
 
-
 	$scope.sendPriv = function (user) {
 		privateMessage.send(user, socket);
 	};
-
 }]);
