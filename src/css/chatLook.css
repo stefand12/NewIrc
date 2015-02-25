@@ -33,6 +33,18 @@
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
+.panel-2{
+	margin-top: -20px;
+	margin-bottom: 20px;
+	background-color: rgba(255, 255, 255, 0.75);
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+		border-bottom-right-radius: 1%;
+	border-bottom-left-radius: 1%;  
+}
+
 .panel-body{
 	padding-right: 0px;
 	padding-left: 0px;
@@ -96,13 +108,6 @@ p{
 .roomList ul li a:hover { 
 	color:#ffffff; 
 	background-color: #337AB7; 
-}
-
-#leaveButton {
-	background: url('http://www.videomaniakc.com/tl_files/content/warning/icon-exit.png');
-	background-size: cover;
-	text-decoration: none;
-	float: right;
 }
 
 .panel-heading{
@@ -199,7 +204,7 @@ p{
 	-webkit-overflow: auto;
 	border: 1px solid #8c8c8c;
 	width: 232px;
-	height: 378px;
+	height: 399px;
 	border-bottom-right-radius: 0.8%;
 	border-bottom-left-radius: 0.8%;  
 }
