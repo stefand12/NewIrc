@@ -1,8 +1,11 @@
 {
   "name": "NewIrc",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "authors": [
-    "Her Gunnar <gunnarkp13@ru.is>"
+    "Gunnar Karl Pálmason <gunnarkp13@ru.is>",
+    "Stefán Ingi Daníelsson <stefand12@ru.is>",
+    "Guðjón Pétursson <gudjon12@ru.is>",
+    "Ólafur Ívar Jónsson >olafurij12@ru.is>"
   ],
   "description": "Irc like chat client",
   "main": "NewIrc.html",
