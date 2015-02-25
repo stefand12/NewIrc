@@ -56,13 +56,17 @@ p{
 #mainChatRoom {
 	float: left;
 	border: 1px solid #8c8c8c;
-	width: 748px;
-	height: 300px;
+	width: 847px;
+	height: 322px;
 	overflow: auto;
 	-webkit-overflow: auto;
 	overflow-x:hidden;
 	border-bottom-right-radius: 0.8%;
 	border-bottom-left-radius: 0.8%;  
+}
+
+.alert {
+	height: 50px;
 }
 
 .roomList {
@@ -194,14 +198,10 @@ p{
 	overflow: auto; 
 	-webkit-overflow: auto;
 	border: 1px solid #8c8c8c;
-	width: 358px;
+	width: 232px;
 	height: 378px;
 	border-bottom-right-radius: 0.8%;
 	border-bottom-left-radius: 0.8%;  
-}
-
-.alert {	
-	height: 50px;
 }
 
 #alertGluggi {
