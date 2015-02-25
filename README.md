@@ -40,5 +40,5 @@ Keyrsla NewIrc
 
 	 Opna síðuna
 	 -----------
-	 Nóg er að opna index.html skránna í rótina á verkefninu í vafra sem er ekki búinn
-	 til af handbendlum NSA.
+	 Nóg er að opna index.html skránna í rótina á verkefninu í Firefox vafra.
+	 https://www.mozilla.org/en-US/firefox/new/
