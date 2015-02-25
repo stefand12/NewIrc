@@ -4,9 +4,8 @@ angular.module("NewIrc").controller("RoomListController", [
 	  '$rootScope',
 	   '$routeParams',
 	    'socket',
-	       function ($scope, $location, $rootScope, $routeParams, socket) {
-	//TODO GET ROOM LIST
-	//	
+	    function ($scope, $location, $rootScope, $routeParams, socket) {
+
 		if($routeParams.user === 'undefined') {
 			$location.path('#/login/');
 		}
@@ -24,7 +23,6 @@ angular.module("NewIrc").controller("RoomListController", [
 
 		$scope.roomName = '';
 		$scope.errorMessage = '';
-
 
 		$scope.createRoom = function (password) {
 			var psWd = '';

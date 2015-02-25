@@ -62,7 +62,6 @@ angular.module("NewIrc").controller("HomeController", [
 			}
 			$scope.alerts.push(alert);
 		}
-		/* skoða hvað við viljum gera við þetta message */
 	});
 
 	socket.on('banned',function (roomName, user, byUser) {
@@ -172,7 +171,6 @@ angular.module("NewIrc").controller("HomeController", [
 	$scope.about = function () {
 		$location.path('/about/' + $routeParams.user);
 	};
-
 
 	$scope.closeAlert = function(index) {
     	$scope.alerts.remove(index);

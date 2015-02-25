@@ -23,15 +23,10 @@ angular.module("NewIrc").controller("RoomController", [
 	$scope.messages = []; 
 	$scope.glued = true;
 	$scope.banned = [];
-	/*
-	* .nick
-	* .timestamp
-	* .message
-	*/
 
 	var test = {
 		room:$routeParams.room,
-		pass:$routeParams.pass /*mögulega skoða einhvert annað form*/
+		pass:$routeParams.pass
 	};
 	
 	socket.emit('joinroom', test, function (success, reason) {
@@ -70,14 +65,6 @@ angular.module("NewIrc").controller("RoomController", [
 		}
 	});
 	
-	/* höndlað í homecontroller
-	socket.on('servermessage', function (tag, roomName, user) {
-		if(roomName === $scope.currentRoom){
-
-		}
-		
-	});
-	*/
 	socket.on('bannedlist', function (userName ,channel, bannedlist) {
 		if(channel === $scope.currentRoom) {
 			if(userName === $scope.currentUser) {
@@ -207,8 +194,6 @@ angular.module("NewIrc").controller("RoomController", [
 	$scope.sendPriv = function (user) {
 		privateMessage.send(user, socket);
 	};
-
-	/*  */	
 }]);
 
 
