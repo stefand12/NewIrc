@@ -2,6 +2,14 @@
 
 /* Chat room controller */
 
+/*
+	Þessi controler sér um að stjórna messt allri virkni
+	þegar komið er inn á rásir til að spjalla.
+	hann tekur inn socket, sharedVariables, privateMessage og
+	passPrompt service til að kalla í auka function og tala 
+	við aðra controlera.
+*/
+
 angular.module("NewIrc").controller("RoomController", [
 	'$scope',
 	'$location',
@@ -23,17 +31,23 @@ angular.module("NewIrc").controller("RoomController", [
 		$scope.messages = []; 
 		$scope.glued = true;
 		$scope.banned = [];
-		/*
-		* .nick
-		* .timestamp
-		* .message
-		*/
 
+		/*
+			object til að senda rás áfram á chatserver
+			password er ekki hashað eða neitt fancy 
+		*/
 		var test = {
 			room:$routeParams.room,
-			pass:$routeParams.pass /*mögulega skoða einhvert annað form*/
+			pass:$routeParams.pass
 		};
+
+
 		/* emitted events */
+
+		/*
+			Sendir join request og kallar í passPrompt service
+			rangt password er notað
+		*/
 		socket.emit('joinroom', test, function (success, reason) {
 			if (!success) {
 				if(reason === "wrong password") {
@@ -51,6 +65,11 @@ angular.module("NewIrc").controller("RoomController", [
 
 
 		/* listen for events */
+
+		/*
+			hlustar eftir 'updateusers' signal á frá servernum
+			og uppfærir notenda listann eftir þvi	
+		*/
 		socket.on('updateusers', function (roomName, users, ops) {
 			if(roomName === $scope.currentRoom) {
 				$scope.bubbar = _.toArray(ops);
@@ -59,12 +78,20 @@ angular.module("NewIrc").controller("RoomController", [
 			}
 		});
 
+		/*
+			hlustar eftir 'updatechat' signal á frá servernum
+			og uppfærir chattið eftir þvi	
+		*/
 		socket.on('updatechat', function (roomName, messageHistory) {
 			if(roomName === $scope.currentRoom) {
 				$scope.messages = messageHistory;
 			}
 		});
 
+		/*
+			hlustar eftir 'updatetopic' signal á frá servernum
+			og uppfærir topic	
+		*/
 		socket.on('updatetopic', function (roomName, roomTopic, user) {
 			if(roomName === $scope.currentRoom) {
 				$scope.channelTopic = roomTopic;
@@ -72,6 +99,12 @@ angular.module("NewIrc").controller("RoomController", [
 			}
 		});
 
+		/*
+			hlustar eftir 'bannedlist' signal á frá servernum
+			og uppfærir banned list ef notandi er op
+			þetta er viðbætt function á serverin svo við gætum
+			á auðveldan máta unbannað users	
+		*/
 		socket.on('bannedlist', function (userName ,channel, bannedlist) {
 			if(channel === $scope.currentRoom) {
 				if(userName === $scope.currentUser) {
@@ -80,9 +113,12 @@ angular.module("NewIrc").controller("RoomController", [
 			} 
 		});
 
-		$scope.doOp = function (looser) {
+		/*
+			function til að oppa notendur	
+		*/
+		$scope.doOp = function (user) {
 			var tmpObj = {
-				user: looser,
+				user: user,
 				room: $scope.currentRoom
 			};
 			socket.emit('op', tmpObj, function (success) {
@@ -92,9 +128,12 @@ angular.module("NewIrc").controller("RoomController", [
 			});		
 		};
 
-		$scope.doDeop = function (looser) {
+		/*
+			function til að de oppa notendur	
+		*/
+		$scope.doDeop = function (user) {
 			var tmpObj = {
-				user: looser,
+				user: user,
 				room: $scope.currentRoom
 			};
 			socket.emit('deop', tmpObj, function (success) {
@@ -104,6 +143,9 @@ angular.module("NewIrc").controller("RoomController", [
 			});
 		};
 
+		/*
+			function til að banna notendur	
+		*/
 		$scope.ban = function (user) {
 			var tmpObj = {
 				user: user,
@@ -116,6 +158,9 @@ angular.module("NewIrc").controller("RoomController", [
 			});	
 		};
 
+		/*
+			function til að un banna notendur	
+		*/
 		$scope.unBan = function (user) {
 			var tmpObj = {
 				user: user,
@@ -128,6 +173,9 @@ angular.module("NewIrc").controller("RoomController", [
 			});
 		};
 
+		/*
+			function til að kicka notendum	
+		*/
 		$scope.kick = function (user) {
 			var tmpObj = {
 				user: user,
@@ -140,12 +188,19 @@ angular.module("NewIrc").controller("RoomController", [
 			});
 		};
 
+		/*
+			function til að fara af rás,
+			sendir partroom og redirectar í roomlist	
+		*/
 		$scope.leaveRoom = function () {
 			sharedVariables.setRoom('');
 			socket.emit("partroom", $scope.currentRoom);
 			$location.path('/rooms/' + $scope.currentUser);
 		};
 
+		/*
+			function til að breyta topic	
+		*/
 		$scope.changeTopic = function () {
 			var tmpObj = {
 				topic: $scope.newTopic,
@@ -158,6 +213,11 @@ angular.module("NewIrc").controller("RoomController", [
 			});
 		};
 
+		
+		/*
+			function til að breyta password
+			kallar í passPrompt service til slá inn nýtt pass.	
+		*/
 		$scope.changePassword = function () {
 			passPrompt.password_prompt("Please enter your password:", "Submit", function (newPass) {
 				var tmpObj = {
@@ -190,6 +250,10 @@ angular.module("NewIrc").controller("RoomController", [
 			});
 		};
 
+		/*
+			function til að kalla eftir lista af 
+			bönnuðum notendum á rásinni frá server.	
+		*/
 		$scope.getBanned = function () {
 			socket.emit('getBanned', $scope.currentRoom, function (success) {
 				if(!success) {
@@ -198,6 +262,10 @@ angular.module("NewIrc").controller("RoomController", [
 			});
 		};
 
+		/*
+			function til að senda private message,
+			notar private Message service til að senda message	
+		*/
 		$scope.sendPriv = function (user) {
 			privateMessage.send(user, socket);
 		};
