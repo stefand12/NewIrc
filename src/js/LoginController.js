@@ -1,10 +1,10 @@
 /* LoginController */
+
 /*
 	LoginController sér um að logga user in.
 	tekur inn socket og sharedVariables til að 
 	uppfæra notenda fyrir aðra controllera
 */
-
 angular.module("NewIrc").controller("LoginController", [
 	'$scope',
 	'$location',

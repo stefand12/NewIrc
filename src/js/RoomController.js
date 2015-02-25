@@ -9,7 +9,6 @@
 	passPrompt service til að kalla í auka function og tala 
 	við aðra controlera.
 */
-
 angular.module("NewIrc").controller("RoomController", [
 	'$scope',
 	'$location',

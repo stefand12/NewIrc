@@ -1,5 +1,7 @@
 /*jslint browser:true */
+
 /* HomeController */
+
 /*
 	HomeController er stærsti controllerinn í 
 	NewIrc og sér um að halda utan um notandann

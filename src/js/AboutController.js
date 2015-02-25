@@ -1,4 +1,5 @@
 /* AboutController */
+
 /*
 	controller sem er að mestu ónotaður í annað en að 
 	injecta ng-view, hugsunin var

@@ -1,9 +1,9 @@
 /* RoomListController */
+
 /*
 	RoomListController sér um að sýna og refresha lista yfir þær 
 	rásir sem eru virkar í NewIrc hverju sinni, 	
 */
-
 angular.module("NewIrc").controller("RoomListController", [
 	'$scope',
 	'$location',

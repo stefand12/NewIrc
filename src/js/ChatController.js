@@ -1,4 +1,5 @@
 /* ChatController */
+
 /*
 	Controller sem sér um að senda skilaboð inn á rásir á server 
 	sem eru síðan updated af RoomController, tekur inn socket og
