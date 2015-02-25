@@ -27,11 +27,10 @@ angular.module("NewIrc").controller("RoomListController", [
 
 
 		$scope.createRoom = function (password) {
-			var psWd = '';
 			if($scope.roomName === '') {
 				$scope.errorMessage = "Choose a name for your channel";
 			} else {
-				if($scope.password === undefined) {
+				if($scope.password === undefined || $scope.password === '') {
 					$location.path('/room/' + $scope.currentUser +'/'+ $scope.roomName );
 				}
 				else {

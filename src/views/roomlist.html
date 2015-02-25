@@ -29,7 +29,7 @@
                     <form ng-submit="createRoom()">
                         <input type="text" class="form-control" id="roomName" name="roomName" ng-model="roomName" placeholder="Choose a room name" />
                         <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password Optional!" />
-                        <input class="create-button btn-block" type="submit" ng-click="createRoom(password)" value="Create or Join »">
+                        <input class="create-button btn-block" type="button" ng-click="createRoom(password)" value="Create or Join »" />
                     </form>
                 </div>
             </div>
